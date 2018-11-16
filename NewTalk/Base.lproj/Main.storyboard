@@ -1,24 +1,278 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Stawix - SoinSansNeue-Bold.otf">
+            <string>SoinSansNeue-Bold</string>
+        </array>
+        <array key="Stawix - SoinSansNeue-Light.otf">
+            <string>SoinSansNeue-Light</string>
+        </array>
+        <array key="Stawix - SoinSansNeue-LightItalic.otf">
+            <string>SoinSansNeue-LightItalic</string>
+        </array>
+        <array key="Stawix - SoinSansNeue-Medium.otf">
+            <string>SoinSansNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NewTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="AuthVC" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXm-yg-lgM">
+                                <rect key="frame" x="35" y="75" width="320" height="110"/>
+                                <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="110"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qWj-Vn-sMx">
+                                <rect key="frame" x="35" y="260.5" width="280" height="146"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNI-od-mjq">
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="29"/>
+                                        <fontDescription key="fontDescription" name="SoinSansNeue-Light" family="Soin Sans Neue" pointSize="29"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7s-5B-r8t">
+                                        <rect key="frame" x="0.0" y="39" width="96" height="29"/>
+                                        <fontDescription key="fontDescription" name="SoinSansNeue-Light" family="Soin Sans Neue" pointSize="29"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simple chatting." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9X-bW-E71">
+                                        <rect key="frame" x="0.0" y="78" width="211.5" height="29"/>
+                                        <fontDescription key="fontDescription" name="SoinSansNeue-Light" family="Soin Sans Neue" pointSize="29"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only with Talk." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyV-KJ-x0E">
+                                        <rect key="frame" x="0.0" y="117" width="189" height="29"/>
+                                        <fontDescription key="fontDescription" name="SoinSansNeue-LightItalic" family="Soin Sans Neue" pointSize="29"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="dkv-Zd-okW"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="n0s-9M-33l">
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGH-kS-KlW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                        <color key="backgroundColor" red="0.099975623190402985" green="0.77006447315216064" blue="0.42346745729446411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="sGB-c5-VQl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SoinSansNeue-Bold" family="Soin Sans Neue" pointSize="25"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHU-IL-gCu">
+                                        <rect key="frame" x="0.0" y="75" width="375" height="75"/>
+                                        <color key="backgroundColor" red="0.13370482385977236" green="0.14259162346069457" blue="0.15675737969766412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="LpC-S1-FRZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SoinSansNeue-Bold" family="Soin Sans Neue" pointSize="25"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="UWH-d2-SWl" kind="presentation" id="UY6-vY-vHs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16023316979408264" green="0.17251795530319214" blue="0.18471300601959229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="n0s-9M-33l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="84A-lN-ikF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="n0s-9M-33l" secondAttribute="bottom" id="9Cd-Fc-Rw7"/>
+                            <constraint firstItem="qWj-Vn-sMx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TcQ-Ed-tIJ"/>
+                            <constraint firstItem="SXm-yg-lgM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="a2l-iD-Dwj"/>
+                            <constraint firstItem="SXm-yg-lgM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="eFL-nS-5mE"/>
+                            <constraint firstItem="qWj-Vn-sMx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="jCb-Re-ajS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n0s-9M-33l" secondAttribute="trailing" id="jR2-jz-yDq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SXm-yg-lgM" secondAttribute="trailing" constant="20" id="me1-Eg-hlr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1876" y="-116.00985221674877"/>
+        </scene>
+        <!--Sign UpVC-->
+        <scene sceneID="TNs-Uk-fUA">
+            <objects>
+                <viewController id="UWH-d2-SWl" customClass="SignUpVC" customModule="NewTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zw6-gg-x2s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-La-f6S">
+                                <rect key="frame" x="141" y="70" width="93.5" height="45"/>
+                                <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="okw-Fq-954">
+                                <rect key="frame" x="37.5" y="246" width="300" height="90"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="V0T-fu-9Zu">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="26"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Im-Pp-Ibz">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="19"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="19"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDy-Za-mZv">
+                                                <rect key="frame" x="0.0" y="24" width="300" height="2"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="OKv-s2-0c2"/>
+                                                    <constraint firstAttribute="height" constant="2" id="gNU-zF-wck"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="P6F-Cr-dCT">
+                                        <rect key="frame" x="0.0" y="66" width="300" height="24"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2G8-lP-hLW">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hR-1Y-o1i">
+                                                <rect key="frame" x="0.0" y="22" width="300" height="2"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="95y-WR-H9M"/>
+                                                    <constraint firstAttribute="height" constant="2" id="rks-ik-hR7"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myV-fn-7rp">
+                                <rect key="frame" x="20" y="50" width="30" height="30"/>
+                                <state key="normal" title="X"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzw-Wu-aSv">
+                                <rect key="frame" x="34" y="175" width="307" height="31"/>
+                                <fontDescription key="fontDescription" name="SoinSansNeue-Light" family="Soin Sans Neue" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPD-89-gY4" customClass="RoundedRectBtn" customModule="NewTalk" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="386" width="200" height="50"/>
+                                <color key="backgroundColor" red="0.099975623190000001" green="0.77006447320000004" blue="0.42346745730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="7pV-Ky-VlM"/>
+                                    <constraint firstAttribute="height" constant="50" id="WSE-aE-Fvx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="21"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13370482389999999" green="0.14259162349999999" blue="0.1567573797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="myV-fn-7rp" firstAttribute="top" secondItem="0dX-N3-ye7" secondAttribute="top" constant="30" id="3fy-F6-E06"/>
+                            <constraint firstItem="okw-Fq-954" firstAttribute="centerX" secondItem="zw6-gg-x2s" secondAttribute="centerX" id="B42-OU-nD1"/>
+                            <constraint firstItem="Mzw-Wu-aSv" firstAttribute="centerX" secondItem="zw6-gg-x2s" secondAttribute="centerX" id="CN5-TA-PhK"/>
+                            <constraint firstItem="7vR-La-f6S" firstAttribute="centerX" secondItem="zw6-gg-x2s" secondAttribute="centerX" id="Dqs-xk-59L"/>
+                            <constraint firstItem="myV-fn-7rp" firstAttribute="leading" secondItem="0dX-N3-ye7" secondAttribute="leading" constant="20" id="ELV-2k-hip"/>
+                            <constraint firstItem="7vR-La-f6S" firstAttribute="top" secondItem="0dX-N3-ye7" secondAttribute="top" constant="50" id="GOD-rJ-g7G"/>
+                            <constraint firstItem="okw-Fq-954" firstAttribute="top" secondItem="Mzw-Wu-aSv" secondAttribute="bottom" constant="40" id="P6f-hk-2og"/>
+                            <constraint firstItem="Mzw-Wu-aSv" firstAttribute="top" secondItem="7vR-La-f6S" secondAttribute="bottom" constant="60" id="WEA-c0-xdX"/>
+                            <constraint firstItem="HPD-89-gY4" firstAttribute="top" secondItem="okw-Fq-954" secondAttribute="bottom" constant="50" id="fFl-Cl-RDo"/>
+                            <constraint firstItem="HPD-89-gY4" firstAttribute="centerX" secondItem="zw6-gg-x2s" secondAttribute="centerX" id="ytE-ud-gmg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0dX-N3-ye7"/>
+                    </view>
+                    <connections>
+                        <outlet property="signUpBtn" destination="HPD-89-gY4" id="052-aN-afF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vQN-aL-Jrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2716" y="-116.49175412293854"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="nsR-C6-nW1">
+            <objects>
+                <viewController id="A81-A0-GQL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Td-Ae-snn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="MG7-4a-L07"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="I4S-6Y-SEi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OTM-Gk-mwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="220"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="DIg-qK-gh3">
+            <objects>
+                <viewController id="kNM-hN-DZp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rkA-aB-1G3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="JTa-G0-U7N"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="aLJ-Kc-szD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qG4-hz-wo1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="-445"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="teW-uG-Fqc">
+            <objects>
+                <tabBarController id="BEg-W5-Xre" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DsU-rY-BcA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="kNM-hN-DZp" kind="relationship" relationship="viewControllers" id="Kgs-H7-MqG"/>
+                        <segue destination="A81-A0-GQL" kind="relationship" relationship="viewControllers" id="Fd0-ER-f2c"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="slR-Yb-vkz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155" y="-113"/>
         </scene>
     </scenes>
 </document>

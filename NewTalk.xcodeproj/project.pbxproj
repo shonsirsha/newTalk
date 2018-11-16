@@ -7,14 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B542D08C219EE460005C9DB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B542D08B219EE460005C9DB6 /* GoogleService-Info.plist */; };
+		B542D0A5219EE98F005C9DB6 /* Stawix - SoinSansNeue-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D093219EE98C005C9DB6 /* Stawix - SoinSansNeue-BlackItalic.otf */; };
+		B542D0A6219EE98F005C9DB6 /* Stawix - SoinSansNeue-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D094219EE98C005C9DB6 /* Stawix - SoinSansNeue-Hairline.otf */; };
+		B542D0A7219EE98F005C9DB6 /* Stawix - SoinSansNeue-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D095219EE98C005C9DB6 /* Stawix - SoinSansNeue-ExtraLightItalic.otf */; };
+		B542D0A8219EE98F005C9DB6 /* Stawix - SoinSansNeue-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D096219EE98C005C9DB6 /* Stawix - SoinSansNeue-Medium.otf */; };
+		B542D0A9219EE98F005C9DB6 /* Stawix - SoinSansNeue-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D097219EE98C005C9DB6 /* Stawix - SoinSansNeue-MediumItalic.otf */; };
+		B542D0AA219EE98F005C9DB6 /* Stawix - SoinSansNeue-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D098219EE98C005C9DB6 /* Stawix - SoinSansNeue-ThinItalic.otf */; };
+		B542D0AB219EE98F005C9DB6 /* Stawix - SoinSansNeue-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D099219EE98D005C9DB6 /* Stawix - SoinSansNeue-Roman.otf */; };
+		B542D0AC219EE98F005C9DB6 /* Stawix - SoinSansNeue-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D09A219EE98D005C9DB6 /* Stawix - SoinSansNeue-Thin.otf */; };
+		B542D0AD219EE98F005C9DB6 /* Stawix - SoinSansNeue-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D09B219EE98D005C9DB6 /* Stawix - SoinSansNeue-HeavyItalic.otf */; };
+		B542D0AE219EE98F005C9DB6 /* Stawix - SoinSansNeue-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D09C219EE98D005C9DB6 /* Stawix - SoinSansNeue-ExtraLight.otf */; };
+		B542D0AF219EE98F005C9DB6 /* Stawix - SoinSansNeue-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D09D219EE98D005C9DB6 /* Stawix - SoinSansNeue-LightItalic.otf */; };
+		B542D0B0219EE98F005C9DB6 /* Stawix - SoinSansNeue-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D09E219EE98D005C9DB6 /* Stawix - SoinSansNeue-Italic.otf */; };
+		B542D0B1219EE98F005C9DB6 /* Stawix - SoinSansNeue-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D09F219EE98E005C9DB6 /* Stawix - SoinSansNeue-Black.otf */; };
+		B542D0B2219EE98F005C9DB6 /* Stawix - SoinSansNeue-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D0A0219EE98E005C9DB6 /* Stawix - SoinSansNeue-BoldItalic.otf */; };
+		B542D0B3219EE98F005C9DB6 /* Stawix - SoinSansNeue-HairlineItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D0A1219EE98E005C9DB6 /* Stawix - SoinSansNeue-HairlineItalic.otf */; };
+		B542D0B4219EE98F005C9DB6 /* Stawix - SoinSansNeue-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D0A2219EE98E005C9DB6 /* Stawix - SoinSansNeue-Heavy.otf */; };
+		B542D0B5219EE98F005C9DB6 /* Stawix - SoinSansNeue-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D0A3219EE98F005C9DB6 /* Stawix - SoinSansNeue-Bold.otf */; };
+		B542D0B6219EE98F005C9DB6 /* Stawix - SoinSansNeue-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B542D0A4219EE98F005C9DB6 /* Stawix - SoinSansNeue-Light.otf */; };
+		B542D0BA219EFC89005C9DB6 /* RoundedRectBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B542D0B9219EFC89005C9DB6 /* RoundedRectBtn.swift */; };
+		B542D0BC219EFE5C005C9DB6 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B542D0BB219EFE5C005C9DB6 /* SignUpVC.swift */; };
 		B5B751AC219B011E00D94DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B751AB219B011E00D94DF0 /* AppDelegate.swift */; };
 		B5B751AE219B011E00D94DF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B751AD219B011E00D94DF0 /* ViewController.swift */; };
 		B5B751B1219B011E00D94DF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5B751AF219B011E00D94DF0 /* Main.storyboard */; };
 		B5B751B3219B012300D94DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B751B2219B012300D94DF0 /* Assets.xcassets */; };
 		B5B751B6219B012300D94DF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5B751B4219B012300D94DF0 /* LaunchScreen.storyboard */; };
+		E17949264FD17235D5368ED6 /* Pods_NewTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2804A284BD76CBB00EFF673C /* Pods_NewTalk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16F0A2A2DC8587D2D5C97D03 /* Pods-NewTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewTalk/Pods-NewTalk.release.xcconfig"; sourceTree = "<group>"; };
+		2804A284BD76CBB00EFF673C /* Pods_NewTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B542D08B219EE460005C9DB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B542D093219EE98C005C9DB6 /* Stawix - SoinSansNeue-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-BlackItalic.otf"; sourceTree = "<group>"; };
+		B542D094219EE98C005C9DB6 /* Stawix - SoinSansNeue-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Hairline.otf"; sourceTree = "<group>"; };
+		B542D095219EE98C005C9DB6 /* Stawix - SoinSansNeue-ExtraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-ExtraLightItalic.otf"; sourceTree = "<group>"; };
+		B542D096219EE98C005C9DB6 /* Stawix - SoinSansNeue-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Medium.otf"; sourceTree = "<group>"; };
+		B542D097219EE98C005C9DB6 /* Stawix - SoinSansNeue-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-MediumItalic.otf"; sourceTree = "<group>"; };
+		B542D098219EE98C005C9DB6 /* Stawix - SoinSansNeue-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-ThinItalic.otf"; sourceTree = "<group>"; };
+		B542D099219EE98D005C9DB6 /* Stawix - SoinSansNeue-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Roman.otf"; sourceTree = "<group>"; };
+		B542D09A219EE98D005C9DB6 /* Stawix - SoinSansNeue-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Thin.otf"; sourceTree = "<group>"; };
+		B542D09B219EE98D005C9DB6 /* Stawix - SoinSansNeue-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-HeavyItalic.otf"; sourceTree = "<group>"; };
+		B542D09C219EE98D005C9DB6 /* Stawix - SoinSansNeue-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-ExtraLight.otf"; sourceTree = "<group>"; };
+		B542D09D219EE98D005C9DB6 /* Stawix - SoinSansNeue-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-LightItalic.otf"; sourceTree = "<group>"; };
+		B542D09E219EE98D005C9DB6 /* Stawix - SoinSansNeue-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Italic.otf"; sourceTree = "<group>"; };
+		B542D09F219EE98E005C9DB6 /* Stawix - SoinSansNeue-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Black.otf"; sourceTree = "<group>"; };
+		B542D0A0219EE98E005C9DB6 /* Stawix - SoinSansNeue-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-BoldItalic.otf"; sourceTree = "<group>"; };
+		B542D0A1219EE98E005C9DB6 /* Stawix - SoinSansNeue-HairlineItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-HairlineItalic.otf"; sourceTree = "<group>"; };
+		B542D0A2219EE98E005C9DB6 /* Stawix - SoinSansNeue-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Heavy.otf"; sourceTree = "<group>"; };
+		B542D0A3219EE98F005C9DB6 /* Stawix - SoinSansNeue-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Bold.otf"; sourceTree = "<group>"; };
+		B542D0A4219EE98F005C9DB6 /* Stawix - SoinSansNeue-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Light.otf"; sourceTree = "<group>"; };
+		B542D0B9219EFC89005C9DB6 /* RoundedRectBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectBtn.swift; sourceTree = "<group>"; };
+		B542D0BB219EFE5C005C9DB6 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		B5B751A8219B011E00D94DF0 /* NewTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B751AB219B011E00D94DF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5B751AD219B011E00D94DF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +67,7 @@
 		B5B751B2219B012300D94DF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5B751B5219B012300D94DF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5B751B7219B012300D94DF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF5D86ABA8E556DD80924509 /* Pods-NewTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewTalk/Pods-NewTalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +75,99 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17949264FD17235D5368ED6 /* Pods_NewTalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C7E288415E7E9ADE05F46AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2804A284BD76CBB00EFF673C /* Pods_NewTalk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7981D13FD3F32370B5D9D98E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF5D86ABA8E556DD80924509 /* Pods-NewTalk.debug.xcconfig */,
+				16F0A2A2DC8587D2D5C97D03 /* Pods-NewTalk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B542D08D219EE79E005C9DB6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B542D0BB219EFE5C005C9DB6 /* SignUpVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B542D08E219EE7AF005C9DB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B542D0B9219EFC89005C9DB6 /* RoundedRectBtn.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B542D08F219EE7B2005C9DB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B542D090219EE7B5005C9DB6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B542D091219EE7BC005C9DB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B542D092219EE95C005C9DB6 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B542D09F219EE98E005C9DB6 /* Stawix - SoinSansNeue-Black.otf */,
+				B542D093219EE98C005C9DB6 /* Stawix - SoinSansNeue-BlackItalic.otf */,
+				B542D0A3219EE98F005C9DB6 /* Stawix - SoinSansNeue-Bold.otf */,
+				B542D0A0219EE98E005C9DB6 /* Stawix - SoinSansNeue-BoldItalic.otf */,
+				B542D09C219EE98D005C9DB6 /* Stawix - SoinSansNeue-ExtraLight.otf */,
+				B542D095219EE98C005C9DB6 /* Stawix - SoinSansNeue-ExtraLightItalic.otf */,
+				B542D094219EE98C005C9DB6 /* Stawix - SoinSansNeue-Hairline.otf */,
+				B542D0A1219EE98E005C9DB6 /* Stawix - SoinSansNeue-HairlineItalic.otf */,
+				B542D0A2219EE98E005C9DB6 /* Stawix - SoinSansNeue-Heavy.otf */,
+				B542D09B219EE98D005C9DB6 /* Stawix - SoinSansNeue-HeavyItalic.otf */,
+				B542D09E219EE98D005C9DB6 /* Stawix - SoinSansNeue-Italic.otf */,
+				B542D0A4219EE98F005C9DB6 /* Stawix - SoinSansNeue-Light.otf */,
+				B542D09D219EE98D005C9DB6 /* Stawix - SoinSansNeue-LightItalic.otf */,
+				B542D096219EE98C005C9DB6 /* Stawix - SoinSansNeue-Medium.otf */,
+				B542D097219EE98C005C9DB6 /* Stawix - SoinSansNeue-MediumItalic.otf */,
+				B542D099219EE98D005C9DB6 /* Stawix - SoinSansNeue-Roman.otf */,
+				B542D09A219EE98D005C9DB6 /* Stawix - SoinSansNeue-Thin.otf */,
+				B542D098219EE98C005C9DB6 /* Stawix - SoinSansNeue-ThinItalic.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		B5B7519F219B011E00D94DF0 = {
 			isa = PBXGroup;
 			children = (
 				B5B751AA219B011E00D94DF0 /* NewTalk */,
 				B5B751A9219B011E00D94DF0 /* Products */,
+				7981D13FD3F32370B5D9D98E /* Pods */,
+				5C7E288415E7E9ADE05F46AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,11 +182,18 @@
 		B5B751AA219B011E00D94DF0 /* NewTalk */ = {
 			isa = PBXGroup;
 			children = (
+				B542D092219EE95C005C9DB6 /* fonts */,
+				B542D091219EE7BC005C9DB6 /* Extensions */,
+				B542D090219EE7B5005C9DB6 /* Services */,
+				B542D08F219EE7B2005C9DB6 /* Model */,
+				B542D08E219EE7AF005C9DB6 /* View */,
+				B542D08D219EE79E005C9DB6 /* Controller */,
 				B5B751AB219B011E00D94DF0 /* AppDelegate.swift */,
 				B5B751AD219B011E00D94DF0 /* ViewController.swift */,
 				B5B751AF219B011E00D94DF0 /* Main.storyboard */,
 				B5B751B2219B012300D94DF0 /* Assets.xcassets */,
 				B5B751B4219B012300D94DF0 /* LaunchScreen.storyboard */,
+				B542D08B219EE460005C9DB6 /* GoogleService-Info.plist */,
 				B5B751B7219B012300D94DF0 /* Info.plist */,
 			);
 			path = NewTalk;
@@ -71,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5B751BA219B012300D94DF0 /* Build configuration list for PBXNativeTarget "NewTalk" */;
 			buildPhases = (
+				FD0F511D262667B19574BE45 /* [CP] Check Pods Manifest.lock */,
 				B5B751A4219B011E00D94DF0 /* Sources */,
 				B5B751A5219B011E00D94DF0 /* Frameworks */,
 				B5B751A6219B011E00D94DF0 /* Resources */,
+				2D4ACCB58244B1A0D61121B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,7 +259,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B542D0A6219EE98F005C9DB6 /* Stawix - SoinSansNeue-Hairline.otf in Resources */,
+				B542D0AC219EE98F005C9DB6 /* Stawix - SoinSansNeue-Thin.otf in Resources */,
+				B542D0A7219EE98F005C9DB6 /* Stawix - SoinSansNeue-ExtraLightItalic.otf in Resources */,
+				B542D0AD219EE98F005C9DB6 /* Stawix - SoinSansNeue-HeavyItalic.otf in Resources */,
+				B542D0B0219EE98F005C9DB6 /* Stawix - SoinSansNeue-Italic.otf in Resources */,
+				B542D0AE219EE98F005C9DB6 /* Stawix - SoinSansNeue-ExtraLight.otf in Resources */,
+				B542D0A8219EE98F005C9DB6 /* Stawix - SoinSansNeue-Medium.otf in Resources */,
+				B542D0AA219EE98F005C9DB6 /* Stawix - SoinSansNeue-ThinItalic.otf in Resources */,
+				B542D0AB219EE98F005C9DB6 /* Stawix - SoinSansNeue-Roman.otf in Resources */,
+				B542D0B5219EE98F005C9DB6 /* Stawix - SoinSansNeue-Bold.otf in Resources */,
+				B542D0A5219EE98F005C9DB6 /* Stawix - SoinSansNeue-BlackItalic.otf in Resources */,
+				B542D0A9219EE98F005C9DB6 /* Stawix - SoinSansNeue-MediumItalic.otf in Resources */,
+				B542D0B2219EE98F005C9DB6 /* Stawix - SoinSansNeue-BoldItalic.otf in Resources */,
+				B542D0B4219EE98F005C9DB6 /* Stawix - SoinSansNeue-Heavy.otf in Resources */,
+				B542D0B3219EE98F005C9DB6 /* Stawix - SoinSansNeue-HairlineItalic.otf in Resources */,
+				B542D0B6219EE98F005C9DB6 /* Stawix - SoinSansNeue-Light.otf in Resources */,
+				B542D08C219EE460005C9DB6 /* GoogleService-Info.plist in Resources */,
+				B542D0AF219EE98F005C9DB6 /* Stawix - SoinSansNeue-LightItalic.otf in Resources */,
 				B5B751B6219B012300D94DF0 /* LaunchScreen.storyboard in Resources */,
+				B542D0B1219EE98F005C9DB6 /* Stawix - SoinSansNeue-Black.otf in Resources */,
 				B5B751B3219B012300D94DF0 /* Assets.xcassets in Resources */,
 				B5B751B1219B011E00D94DF0 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +286,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D4ACCB58244B1A0D61121B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NewTalk/Pods-NewTalk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewTalk/Pods-NewTalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD0F511D262667B19574BE45 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewTalk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B5B751A4219B011E00D94DF0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B542D0BC219EFE5C005C9DB6 /* SignUpVC.swift in Sources */,
 				B5B751AE219B011E00D94DF0 /* ViewController.swift in Sources */,
 				B5B751AC219B011E00D94DF0 /* AppDelegate.swift in Sources */,
+				B542D0BA219EFC89005C9DB6 /* RoundedRectBtn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +483,7 @@
 		};
 		B5B751BB219B012300D94DF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF5D86ABA8E556DD80924509 /* Pods-NewTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +502,7 @@
 		};
 		B5B751BC219B012300D94DF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16F0A2A2DC8587D2D5C97D03 /* Pods-NewTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

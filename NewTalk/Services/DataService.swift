@@ -29,14 +29,31 @@ class DataService{
         REF_USER.child(uid).updateChildValues(userData)
     }
     
-    func checkUname(username: String, unameAvail: @escaping(_ status: Bool)->()){
-        REF_USER.queryOrdered(byChild: "talkId").queryEqual(toValue: username).observeSingleEvent(of: DataEventType.value) { (snapshot) in
+    func checkUname(talkId: String, unameAvail: @escaping(_ status: Bool, _ hisHerUid: String)->()){
+        REF_USER.queryOrdered(byChild: "talkId").queryEqual(toValue: talkId).observeSingleEvent(of: DataEventType.value) { (snapshot) in
             if snapshot.exists(){
-                unameAvail(false)
+                var hisHerUid = ""
+                
+                 guard let zx = snapshot.children.allObjects as? [DataSnapshot] else{return}
+                
+                for user in zx{
+                    hisHerUid = user.childSnapshot(forPath: "uid").value as! String
+                }
+                unameAvail(false,hisHerUid)
             }else{
-                unameAvail(true)
+                unameAvail(true,"")
             }
         }
     }
+    
+    func addFriend(hisHerUid: String, uid: String, userData: Dictionary<String, Any>){
+    REF_USER.child(uid).child("friends").child(hisHerUid).updateChildValues(userData)
+    }
+    
+    
+    
+    /*func checkIfFriends(username: String, itsFriend: @escaping(_ status: Bool)->()){
+        REF_USER.queryOrdered(byChild: "friends").queryEqual(toValue: username)
+    }*/
     
 }

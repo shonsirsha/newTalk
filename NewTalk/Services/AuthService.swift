@@ -20,10 +20,21 @@ class AuthService{
                 return
             }
             
-            let userData = ["email": authData.user.email, "talkId": talkId]
+            let userData = ["email": authData.user.email, "talkId": talkId, "uid": Auth.auth().currentUser?.uid]
             DataService.instance.createDBUser(uid: authData.user.uid, userData: userData)
             userCreationComplete(true, nil)
             
+        }
+    }
+    
+    func loginUser(email: String, password: String, loginComplete: @escaping(_ status: Bool,_ error: Error?) -> ()){
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil{
+                loginComplete(false, error)
+                return
+            }
+            
+            loginComplete(true, nil)
         }
     }
     

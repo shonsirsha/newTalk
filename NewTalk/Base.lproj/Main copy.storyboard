@@ -394,8 +394,8 @@
                                     <action selector="signUpBtnPressed:" destination="UWH-d2-SWl" eventType="touchUpInside" id="vKO-3D-alX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TalkID must at least be 4 characters long" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH8-7a-C0i">
-                                <rect key="frame" x="51" y="282" width="273.5" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username must at least be 4 characters long" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH8-7a-C0i">
+                                <rect key="frame" x="38" y="282" width="299.5" height="15"/>
                                 <fontDescription key="fontDescription" name="SoinSansNeue-Light" family="Soin Sans Neue" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -482,18 +482,9 @@
                                     <constraint firstAttribute="height" constant="72" id="eNX-ap-BCQ"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlX-fp-Q0P">
-                                <rect key="frame" x="164.5" y="318.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="logout:" destination="kNM-hN-DZp" eventType="touchUpInside" id="bUB-I6-keb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hlX-fp-Q0P" firstAttribute="centerX" secondItem="rkA-aB-1G3" secondAttribute="centerX" id="F8n-Wa-Jjo"/>
-                            <constraint firstItem="hlX-fp-Q0P" firstAttribute="centerY" secondItem="rkA-aB-1G3" secondAttribute="centerY" id="kcv-QX-NDH"/>
                             <constraint firstItem="pYd-Iz-NJ1" firstAttribute="top" secondItem="rkA-aB-1G3" secondAttribute="top" id="nbD-h0-MTL"/>
                             <constraint firstItem="pYd-Iz-NJ1" firstAttribute="leading" secondItem="JTa-G0-U7N" secondAttribute="leading" id="qTB-yW-3Qm"/>
                             <constraint firstItem="pYd-Iz-NJ1" firstAttribute="trailing" secondItem="JTa-G0-U7N" secondAttribute="trailing" id="rWM-1f-iAU"/>
@@ -563,17 +554,13 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAs-J6-Crt">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.099975623190000001" green="0.77006447320000004" blue="0.42346745730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wGh-FQ-cRr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="searchBtnPressed:" destination="18q-IZ-shT" eventType="touchUpInside" id="zfQ-hz-zj2"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16023316979999999" green="0.1725179553" blue="0.18471300600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -587,10 +574,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NrU-Ub-ZwN"/>
                     </view>
-                    <connections>
-                        <outlet property="searchBtn" destination="fAs-J6-Crt" id="x6E-IX-mm8"/>
-                        <outlet property="unameField" destination="0Ej-tm-NPi" id="aDo-Kf-XA8"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vss-sg-K0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

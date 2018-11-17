@@ -10,6 +10,7 @@ import UIKit
 
 class LoginVC: UIViewController {
     
+    @IBOutlet weak var loginStatusLabel: UILabel!
     @IBOutlet weak var loginBtn: RoundedRectBtn!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -17,7 +18,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var textFieldStack: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       loginStatusLabel.isHidden = true
         loginBtn.backgroundColor = #colorLiteral(red: 0.09803921569, green: 0.768627451, blue: 0.4235294118, alpha: 1)
         loginBtn.layer.cornerRadius = 25
         loginBtn.layer.borderWidth = 0
@@ -28,6 +29,16 @@ class LoginVC: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
+    @IBAction func loginBtnPressed(_ sender: Any) {
+        AuthService.instance.loginUser(email: emailField.text!, password: passwordField.text!) { (success, loginErr) in
+            if success{
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                self.loginStatusLabel.isHidden = false
+                print(String(describing: loginErr?.localizedDescription))
+            }
+        }
+    }
     @IBAction func closeBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

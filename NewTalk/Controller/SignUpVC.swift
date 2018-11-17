@@ -31,7 +31,7 @@ class SignUpVC: UIViewController {
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        unameField.attributedPlaceholder = NSAttributedString(string: "Username (only alphanumerics, . , and _)",
+        unameField.attributedPlaceholder = NSAttributedString(string: "TalkID (only alphanumerics, . , and _)",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
 
@@ -42,16 +42,18 @@ class SignUpVC: UIViewController {
           
             if unameField.text?.rangeOfCharacter(from: characterset.inverted) != nil {
                 signUpBtn.isHidden = true
-                unameStatusLabel.text = "Username can't contain special character(s)"
+                unameStatusLabel.text = "TalkID can't contain special character(s)"
                 unameStatusLabel.textColor = #colorLiteral(red: 1, green: 0.150029252, blue: 0, alpha: 1)
             }else{
                 signUpBtn.isHidden = false
-                unameStatusLabel.text = "Username is valid"
+                unameStatusLabel.text = "TalkID is valid"
                 unameStatusLabel.textColor = #colorLiteral(red: 0.09620451182, green: 0.7700600028, blue: 0.4234673679, alpha: 1)
             }
         }else{
             signUpBtn.isHidden = true
-            unameStatusLabel.text = "Username must at least be 4 characters long"
+            unameStatusLabel.text = "TalkID must at least be 4 characters long"
+            unameStatusLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
         }
     }
     
@@ -62,7 +64,7 @@ class SignUpVC: UIViewController {
     @IBAction func signUpBtnPressed(_ sender: Any) {
         unameStatusLabel.text = "Checking..."
         unameStatusLabel.textColor = #colorLiteral(red: 0.09620451182, green: 0.7700600028, blue: 0.4234673679, alpha: 1)
-        DataService.instance.checkUname(username: unameField.text!) { (avail) in
+        DataService.instance.checkUname(talkId: unameField.text!) { (avail,_) in
             if avail{
                 AuthService.instance.registerUser(email: self.emailField.text!, password: self.passwordField.text!, talkId: self.unameField.text!) { (success, signUpErr) in
                     if success{
@@ -72,8 +74,8 @@ class SignUpVC: UIViewController {
                     }
                 }
             }else{
-                self.unameStatusLabel.text = "Username is already taken."
-                self.unameStatusLabel.textColor = #colorLiteral(red: 1, green: 0.150029252, blue: 0, alpha: 1)
+                self.unameStatusLabel.text = "TalkID is already taken."
+                self.unameStatusLabel.textColor = #colorLiteral(red: 1, green: 0.1490196078, blue: 0, alpha: 1)
             }
         }
        /* */

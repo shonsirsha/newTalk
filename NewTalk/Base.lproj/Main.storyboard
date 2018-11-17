@@ -439,7 +439,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MG7-4a-L07"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chats" image="emailIcon" selectedImage="emailIcon" id="I4S-6Y-SEi"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="chatTabBarIcon" selectedImage="chatTabBarIcon" id="I4S-6Y-SEi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTM-Gk-mwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -463,8 +463,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-ZO-5f0">
-                                        <rect key="frame" x="336" y="30" width="19" height="45"/>
-                                        <state key="normal" image="addNewIcon"/>
+                                        <rect key="frame" x="330" y="30" width="25" height="45"/>
+                                        <state key="normal" image="addusericon"/>
                                         <connections>
                                             <action selector="closeBtnPressed:" destination="UKx-Zi-eUB" eventType="touchUpInside" id="Vs6-7y-5Gj"/>
                                             <action selector="closeBtnPressed:" destination="UWH-d2-SWl" eventType="touchUpInside" id="efj-MX-Egw"/>
@@ -531,7 +531,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2068891773" green="0.22306048019999999" blue="0.23951062819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.22352941176470587" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="0A6-8e-Uh8" firstAttribute="leading" secondItem="TcE-jq-EJr" secondAttribute="leading" constant="20" id="7b4-Td-LuR"/>
                                     <constraint firstAttribute="height" constant="72" id="Bln-cy-kJv"/>
@@ -567,8 +567,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wGh-FQ-cRr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="20"/>
-                                <state key="normal" title="Search">
+                                <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="25"/>
+                                <state key="normal" title=" Search" image="searchIcon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -617,9 +617,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addNewIcon" width="19" height="19"/>
+        <image name="addusericon" width="25" height="25"/>
+        <image name="chatTabBarIcon" width="25" height="25"/>
         <image name="close" width="21" height="20"/>
-        <image name="emailIcon" width="25" height="16"/>
         <image name="groups-tabIcon" width="25" height="23"/>
+        <image name="searchIcon" width="29" height="29"/>
     </resources>
 </document>

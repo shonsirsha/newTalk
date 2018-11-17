@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B503F08821A048E000D01190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B503F08721A048E000D01190 /* Assets.xcassets */; };
 		B542D08C219EE460005C9DB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B542D08B219EE460005C9DB6 /* GoogleService-Info.plist */; };
 		B542D0BA219EFC89005C9DB6 /* RoundedRectBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B542D0B9219EFC89005C9DB6 /* RoundedRectBtn.swift */; };
 		B542D0BC219EFE5C005C9DB6 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B542D0BB219EFE5C005C9DB6 /* SignUpVC.swift */; };
 		B59E168721A01D00007F27CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59E168521A01D00007F27CB /* Main.storyboard */; };
 		B5B751AC219B011E00D94DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B751AB219B011E00D94DF0 /* AppDelegate.swift */; };
-		B5B751B3219B012300D94DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B751B2219B012300D94DF0 /* Assets.xcassets */; };
 		B5B751B6219B012300D94DF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5B751B4219B012300D94DF0 /* LaunchScreen.storyboard */; };
 		B5C2C438219F15EF00E6D3EC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2C437219F15EF00E6D3EC /* LoginVC.swift */; };
 		B5C2C43C219F17C000E6D3EC /* BindKbd.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2C43B219F17C000E6D3EC /* BindKbd.swift */; };
@@ -48,6 +48,7 @@
 /* Begin PBXFileReference section */
 		03556B118AF5A131037BA145 /* Pods-NewTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewTalk/Pods-NewTalk.release.xcconfig"; sourceTree = "<group>"; };
 		17F401594EA56CFA29394BC2 /* Pods-NewTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewTalk/Pods-NewTalk.debug.xcconfig"; sourceTree = "<group>"; };
+		B503F08721A048E000D01190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B542D08B219EE460005C9DB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B542D093219EE98C005C9DB6 /* Stawix - SoinSansNeue-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-BlackItalic.otf"; sourceTree = "<group>"; };
 		B542D094219EE98C005C9DB6 /* Stawix - SoinSansNeue-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Hairline.otf"; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		B59E168621A01D00007F27CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5B751A8219B011E00D94DF0 /* NewTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B751AB219B011E00D94DF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5B751B2219B012300D94DF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5B751B5219B012300D94DF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5B751B7219B012300D94DF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5C2C437219F15EF00E6D3EC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -118,6 +118,7 @@
 				B5E60980219FEDCA0021F8C9 /* MeVC.swift */,
 				B5E6098221A014280021F8C9 /* MyTabbarClassVC.swift */,
 				B5E6098421A018730021F8C9 /* AddFriendsVC.swift */,
+				B503F08721A048E000D01190 /* Assets.xcassets */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,7 +205,6 @@
 				B542D092219EE95C005C9DB6 /* fonts */,
 				B542D090219EE7B5005C9DB6 /* Services */,
 				B542D08D219EE79E005C9DB6 /* Controller */,
-				B5B751B2219B012300D94DF0 /* Assets.xcassets */,
 				B542D091219EE7BC005C9DB6 /* Extensions */,
 				B542D08F219EE7B2005C9DB6 /* Model */,
 				B542D08E219EE7AF005C9DB6 /* View */,
@@ -288,6 +288,7 @@
 			files = (
 				B5E60973219FD3DE0021F8C9 /* Stawix - SoinSansNeue-HeavyItalic.otf in Resources */,
 				B5E6097A219FD3DE0021F8C9 /* Stawix - SoinSansNeue-Thin.otf in Resources */,
+				B503F08821A048E000D01190 /* Assets.xcassets in Resources */,
 				B542D08C219EE460005C9DB6 /* GoogleService-Info.plist in Resources */,
 				B5E60976219FD3DE0021F8C9 /* Stawix - SoinSansNeue-LightItalic.otf in Resources */,
 				B5E60970219FD3DE0021F8C9 /* Stawix - SoinSansNeue-Hairline.otf in Resources */,
@@ -303,7 +304,6 @@
 				B5E60971219FD3DE0021F8C9 /* Stawix - SoinSansNeue-HairlineItalic.otf in Resources */,
 				B5E6096E219FD3DE0021F8C9 /* Stawix - SoinSansNeue-ExtraLight.otf in Resources */,
 				B5B751B6219B012300D94DF0 /* LaunchScreen.storyboard in Resources */,
-				B5B751B3219B012300D94DF0 /* Assets.xcassets in Resources */,
 				B5E6097B219FD3DE0021F8C9 /* Stawix - SoinSansNeue-ThinItalic.otf in Resources */,
 				B5E60972219FD3DE0021F8C9 /* Stawix - SoinSansNeue-Heavy.otf in Resources */,
 				B5E6096D219FD3DE0021F8C9 /* Stawix - SoinSansNeue-BoldItalic.otf in Resources */,
@@ -527,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q33X652UWU;
 				INFOPLIST_FILE = NewTalk/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,7 +547,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q33X652UWU;
 				INFOPLIST_FILE = NewTalk/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

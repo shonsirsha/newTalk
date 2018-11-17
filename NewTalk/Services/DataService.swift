@@ -33,9 +33,7 @@ class DataService{
         REF_USER.queryOrdered(byChild: "talkId").queryEqual(toValue: talkId).observeSingleEvent(of: DataEventType.value) { (snapshot) in
             if snapshot.exists(){
                 var hisHerUid = ""
-                
-                 guard let zx = snapshot.children.allObjects as? [DataSnapshot] else{return}
-                
+                guard let zx = snapshot.children.allObjects as? [DataSnapshot] else{return}
                 for user in zx{
                     hisHerUid = user.childSnapshot(forPath: "uid").value as! String
                 }

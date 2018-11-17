@@ -30,7 +30,6 @@ class SignUpVC: UIViewController {
                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        
         unameField.attributedPlaceholder = NSAttributedString(string: "TalkID (only alphanumerics, . , and _)",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         

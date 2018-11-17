@@ -10,17 +10,78 @@ import UIKit
 
 class SignUpVC: UIViewController {
 
+    @IBOutlet weak var unameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var unameStatusLabel: UILabel!
+    @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signUpBtn: RoundedRectBtn!
+
+      let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._")
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        signUpBtn.backgroundColor = #colorLiteral(red: 0.09997562319, green: 0.7700644732, blue: 0.4234674573, alpha: 1)
-    signUpBtn.layer.cornerRadius = 25
+        signUpBtn.isHidden = true
+
+        signUpBtn.backgroundColor = #colorLiteral(red: 0.09803921569, green: 0.768627451, blue: 0.4235294118, alpha: 1)
+        signUpBtn.layer.cornerRadius = 25
         signUpBtn.layer.borderWidth = 0
         //signUpBtn.layer.borderColor = UIColor.black.cgColor
+        
+        emailField.attributedPlaceholder = NSAttributedString(string: "Email",
+                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passwordField.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        unameField.attributedPlaceholder = NSAttributedString(string: "Username (only alphanumerics, . , and _)",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
 
-
-        // Do any additional setup after loading the view.
     }
-
+    
+    @IBAction func unameFieldChanged(_ sender: Any) {
+        if (unameField.text?.count)! >= 4{
+          
+            if unameField.text?.rangeOfCharacter(from: characterset.inverted) != nil {
+                signUpBtn.isHidden = true
+                unameStatusLabel.text = "Username can't contain special character(s)"
+                unameStatusLabel.textColor = #colorLiteral(red: 1, green: 0.150029252, blue: 0, alpha: 1)
+            }else{
+                signUpBtn.isHidden = false
+                unameStatusLabel.text = "Username is valid"
+                unameStatusLabel.textColor = #colorLiteral(red: 0.09620451182, green: 0.7700600028, blue: 0.4234673679, alpha: 1)
+            }
+        }else{
+            signUpBtn.isHidden = true
+            unameStatusLabel.text = "Username must at least be 4 characters long"
+        }
+    }
+    
+    @IBAction func closeBtnPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func signUpBtnPressed(_ sender: Any) {
+        unameStatusLabel.text = "Checking..."
+        unameStatusLabel.textColor = #colorLiteral(red: 0.09620451182, green: 0.7700600028, blue: 0.4234673679, alpha: 1)
+        DataService.instance.checkUname(username: unameField.text!) { (avail) in
+            if avail{
+                AuthService.instance.registerUser(email: self.emailField.text!, password: self.passwordField.text!, talkId: self.unameField.text!) { (success, signUpErr) in
+                    if success{
+                        self.dismiss(animated: true, completion: nil)
+                    }else{
+                        print(String(describing: signUpErr?.localizedDescription))
+                    }
+                }
+            }else{
+                self.unameStatusLabel.text = "Username is already taken."
+                self.unameStatusLabel.textColor = #colorLiteral(red: 1, green: 0.150029252, blue: 0, alpha: 1)
+            }
+        }
+       /* */
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        unameField.resignFirstResponder()
+    }
+    
 }

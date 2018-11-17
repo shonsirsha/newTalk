@@ -7,9 +7,10 @@ target 'NewTalk' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for NewTalk
+  #Pods for NewTalk
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
-
+  pod 'IQKeyboardManagerSwift', '6.0.4'
+  
 end

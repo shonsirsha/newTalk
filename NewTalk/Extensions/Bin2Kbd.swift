@@ -7,38 +7,26 @@
 //
 
 import UIKit
-
 extension UIView{
     func bin2kbd(){
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UIView.keyboardWillChange(notification:)), name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-       
-            let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-            let curve = notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-            let beginningFrame = (notification.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-            let endFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-            let deltaY = endFrame.origin.y - beginningFrame.origin.y
-            
-            UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
-                self.frame.origin.y -= deltaY
-            }, completion: nil)
-        
+    func unbin2kbd(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc
+    func keyboardWillChange(notification: Notification) {
         let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
         let curve = notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-        let beginningFrame = (notification.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let endFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let deltaY = endFrame.origin.y - beginningFrame.origin.y
+        let curFrame = (notification.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let targetFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let deltaY = targetFrame.origin.y - curFrame.origin.y
         
         UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
-            self.frame.origin.y += deltaY
-        }, completion: nil)
+            self.frame.origin.y+=deltaY
+            
+        },completion: nil)
+        
     }
 }

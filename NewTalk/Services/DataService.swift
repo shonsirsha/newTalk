@@ -48,6 +48,16 @@ class DataService{
     REF_USER.child(uid).child("friends").child(hisHerUid).updateChildValues(userData)
     }
     
+    func checkIfFriends(uid: String, hisHerUid: String, isFriend: @escaping(_ status: Bool)->()){
+        REF_USER.child(uid).child("friends").queryOrdered(byChild: "uid").queryEqual(toValue: hisHerUid).observeSingleEvent(of: DataEventType.value) { (snapshot) in
+            if snapshot.exists(){
+                isFriend(true)
+            }else{
+                isFriend(false)
+            }
+        }
+    }
+    
     
     
     /*func checkIfFriends(username: String, itsFriend: @escaping(_ status: Bool)->()){

@@ -6,13 +6,14 @@
 //  Copyright © 2018 Sean Saoirse. All rights reserved.
 //
 
+
 import UIKit
+
 
 extension UIView{
     func bindToKeyboard(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
-
     
     @objc func keyboardWillChange(_ notification: NSNotification){
         let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
@@ -24,5 +25,6 @@ extension UIView{
         UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
             self.frame.origin.y += deltaY
         }, completion: nil)
-    }
+}
+    
 }

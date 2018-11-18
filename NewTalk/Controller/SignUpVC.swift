@@ -27,11 +27,11 @@ class SignUpVC: UIViewController {
         //signUpBtn.layer.borderColor = UIColor.black.cgColor
         
         emailField.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                              attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.677764118, green: 0.677764118, blue: 0.677764118, alpha: 1)])
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)])
         unameField.attributedPlaceholder = NSAttributedString(string: "TalkID (only alphanumerics, . , and _)",
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.677764118, green: 0.677764118, blue: 0.677764118, alpha: 1)])
         
 
     }

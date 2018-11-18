@@ -24,9 +24,9 @@ class LoginVC: UIViewController {
         loginBtn.layer.borderWidth = 0
         
         emailField.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                              attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.677764118, green: 0.677764118, blue: 0.677764118, alpha: 1)])
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.677764118, green: 0.677764118, blue: 0.677764118, alpha: 1)])
     }
     
     @IBAction func loginBtnPressed(_ sender: Any) {

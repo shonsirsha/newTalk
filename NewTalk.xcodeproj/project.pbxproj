@@ -11,6 +11,8 @@
 		B542D08C219EE460005C9DB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B542D08B219EE460005C9DB6 /* GoogleService-Info.plist */; };
 		B542D0BC219EFE5C005C9DB6 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B542D0BB219EFE5C005C9DB6 /* SignUpVC.swift */; };
 		B59E168721A01D00007F27CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59E168521A01D00007F27CB /* Main.storyboard */; };
+		B59EE49521A3E61100025C18 /* ProfileSideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EE49421A3E61100025C18 /* ProfileSideVC.swift */; };
+		B59EE49721A3F50E00025C18 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EE49621A3F50E00025C18 /* FriendsCell.swift */; };
 		B5ABEEE021A3B9FB00B0301D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ABEEDF21A3B9FB00B0301D /* SWRevealViewController.m */; };
 		B5ABEEE221A3BCEF00B0301D /* GradientSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ABEEE121A3BCEF00B0301D /* GradientSwift.swift */; };
 		B5B751AC219B011E00D94DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B751AB219B011E00D94DF0 /* AppDelegate.swift */; };
@@ -71,6 +73,8 @@
 		B542D0A4219EE98F005C9DB6 /* Stawix - SoinSansNeue-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Light.otf"; sourceTree = "<group>"; };
 		B542D0BB219EFE5C005C9DB6 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		B59E168621A01D00007F27CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B59EE49421A3E61100025C18 /* ProfileSideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSideVC.swift; sourceTree = "<group>"; };
+		B59EE49621A3F50E00025C18 /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
 		B5ABEEDD21A3B9F900B0301D /* NewTalk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewTalk-Bridging-Header.h"; sourceTree = "<group>"; };
 		B5ABEEDE21A3B9FA00B0301D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		B5ABEEDF21A3B9FB00B0301D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -122,7 +126,7 @@
 				B5E60980219FEDCA0021F8C9 /* MeVC.swift */,
 				B5E6098221A014280021F8C9 /* MyTabbarClassVC.swift */,
 				B5E6098421A018730021F8C9 /* AddFriendsVC.swift */,
-				B503F08721A048E000D01190 /* Assets.xcassets */,
+				B59EE49421A3E61100025C18 /* ProfileSideVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -131,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				B5ABEEE121A3BCEF00B0301D /* GradientSwift.swift */,
+				B59EE49621A3F50E00025C18 /* FriendsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				B542D08E219EE7AF005C9DB6 /* View */,
 				B5B751AB219B011E00D94DF0 /* AppDelegate.swift */,
 				B59E168521A01D00007F27CB /* Main.storyboard */,
+				B503F08721A048E000D01190 /* Assets.xcassets */,
 				B5B751B4219B012300D94DF0 /* LaunchScreen.storyboard */,
 				B542D08B219EE460005C9DB6 /* GoogleService-Info.plist */,
 				B5B751B7219B012300D94DF0 /* Info.plist */,
@@ -386,7 +392,9 @@
 				B5ABEEE221A3BCEF00B0301D /* GradientSwift.swift in Sources */,
 				B542D0BC219EFE5C005C9DB6 /* SignUpVC.swift in Sources */,
 				B5B751AC219B011E00D94DF0 /* AppDelegate.swift in Sources */,
+				B59EE49521A3E61100025C18 /* ProfileSideVC.swift in Sources */,
 				B5FC25F4219FCE1A002287AF /* AuthService.swift in Sources */,
+				B59EE49721A3F50E00025C18 /* FriendsCell.swift in Sources */,
 				B5E6097D219FDC9C0021F8C9 /* Handy.swift in Sources */,
 				B5C2C468219F3CDD00E6D3EC /* Bin2Kbd.swift in Sources */,
 				B5ABEEE021A3B9FB00B0301D /* SWRevealViewController.m in Sources */,

@@ -58,6 +58,24 @@ class DataService{
         }
     }
     
+    func checkMyFriends(uid: String, handler: @escaping(_ friends: [String])->()){
+        var friendsArr = [String]()
+        REF_USER.child(uid).child("friends").observe(DataEventType.value) { (friendsObject) in
+            guard let friendsObject = friendsObject.children.allObjects as? [DataSnapshot] else {return}
+            
+            for friendsTalkId in friendsObject{
+                let talkId = friendsTalkId.childSnapshot(forPath: "talkId").value as! String
+                
+                friendsArr.insert(talkId, at: 0)
+            }
+            
+            friendsArr = friendsArr.sorted(by: <)
+            handler(friendsArr)
+            friendsArr = [String]()
+           
+        }
+    }
+    
     
     
     /*func checkIfFriends(username: String, itsFriend: @escaping(_ status: Bool)->()){

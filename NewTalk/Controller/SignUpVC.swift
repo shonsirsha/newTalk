@@ -14,9 +14,10 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var unameStatusLabel: UILabel!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var signUpBtn: RoundedRectBtn!
-
-      let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._")
+    @IBOutlet weak var signUpBtn: UIButton!
+    
+    
+    let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._")
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpBtn.isHidden = true
@@ -61,6 +62,7 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func signUpBtnPressed(_ sender: Any) {
+        
         unameStatusLabel.text = "Checking..."
         unameStatusLabel.textColor = #colorLiteral(red: 0.09620451182, green: 0.7700600028, blue: 0.4234673679, alpha: 1)
         DataService.instance.checkUname(talkId: unameField.text!) { (avail,_) in
@@ -77,8 +79,8 @@ class SignUpVC: UIViewController {
                 self.unameStatusLabel.textColor = #colorLiteral(red: 1, green: 0.1490196078, blue: 0, alpha: 1)
             }
         }
-       /* */
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()

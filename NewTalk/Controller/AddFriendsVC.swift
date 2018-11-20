@@ -33,34 +33,7 @@ class AddFriendsVC: UIViewController,UITextFieldDelegate{
  
         // Do any additional setup after loading the view.
     }
-  
-    @objc func keyboardWillShow(sender: NSNotification) {
-        let duration = sender.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        let curve = sender.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-        let beginningFrame = (sender.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let endFrame = (sender.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let deltaY = endFrame.origin.y - beginningFrame.origin.y
-        
-        UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
-            self.searchBtn.frame.origin.y += deltaY
-        }, completion: nil)
-        bottomNibba.constant += deltaY
-        print(deltaY)
-    }
-    
-    @objc func keyboardWillHide(sender: NSNotification) {
-        let duration = sender.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        let curve = sender.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-        let beginningFrame = (sender.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let endFrame = (sender.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let deltaY = endFrame.origin.y - beginningFrame.origin.y
-        
-        UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
-            self.searchBtn.frame.origin.y += deltaY
-        }, completion: nil)
-        bottomNibba.constant += deltaY
-        print(deltaY)
-    }
+
     @IBAction func searchBtnPressed(_ sender: Any) {
         self.addBtn.isHidden = true
         self.usernameLabel.text = "Searching..."
@@ -96,6 +69,38 @@ class AddFriendsVC: UIViewController,UITextFieldDelegate{
         friendStatusLabel.isHidden = false
         friendStatusLabel.text = "Added"
 
+    }
+    
+    @IBAction func clearBtnPressed(_ sender: Any) {
+        unameField.text = ""
+    }
+    
+    @objc func keyboardWillShow(sender: NSNotification) {
+        let duration = sender.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        let curve = sender.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+        let beginningFrame = (sender.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let endFrame = (sender.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let deltaY = endFrame.origin.y - beginningFrame.origin.y
+        
+        UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
+            self.searchBtn.frame.origin.y += deltaY
+        }, completion: nil)
+        bottomNibba.constant += deltaY
+        print(deltaY)
+    }
+    
+    @objc func keyboardWillHide(sender: NSNotification) {
+        let duration = sender.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        let curve = sender.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+        let beginningFrame = (sender.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let endFrame = (sender.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let deltaY = endFrame.origin.y - beginningFrame.origin.y
+        
+        UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
+            self.searchBtn.frame.origin.y += deltaY
+        }, completion: nil)
+        bottomNibba.constant += deltaY
+        print(deltaY)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

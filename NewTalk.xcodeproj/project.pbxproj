@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		B503F08821A048E000D01190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B503F08721A048E000D01190 /* Assets.xcassets */; };
 		B542D08C219EE460005C9DB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B542D08B219EE460005C9DB6 /* GoogleService-Info.plist */; };
-		B542D0BA219EFC89005C9DB6 /* RoundedRectBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B542D0B9219EFC89005C9DB6 /* RoundedRectBtn.swift */; };
 		B542D0BC219EFE5C005C9DB6 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B542D0BB219EFE5C005C9DB6 /* SignUpVC.swift */; };
 		B59E168721A01D00007F27CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59E168521A01D00007F27CB /* Main.storyboard */; };
+		B5ABEEE021A3B9FB00B0301D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ABEEDF21A3B9FB00B0301D /* SWRevealViewController.m */; };
+		B5ABEEE221A3BCEF00B0301D /* GradientSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ABEEE121A3BCEF00B0301D /* GradientSwift.swift */; };
 		B5B751AC219B011E00D94DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B751AB219B011E00D94DF0 /* AppDelegate.swift */; };
 		B5B751B6219B012300D94DF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5B751B4219B012300D94DF0 /* LaunchScreen.storyboard */; };
 		B5C2C438219F15EF00E6D3EC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2C437219F15EF00E6D3EC /* LoginVC.swift */; };
@@ -68,9 +69,12 @@
 		B542D0A2219EE98E005C9DB6 /* Stawix - SoinSansNeue-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Heavy.otf"; sourceTree = "<group>"; };
 		B542D0A3219EE98F005C9DB6 /* Stawix - SoinSansNeue-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Bold.otf"; sourceTree = "<group>"; };
 		B542D0A4219EE98F005C9DB6 /* Stawix - SoinSansNeue-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stawix - SoinSansNeue-Light.otf"; sourceTree = "<group>"; };
-		B542D0B9219EFC89005C9DB6 /* RoundedRectBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectBtn.swift; sourceTree = "<group>"; };
 		B542D0BB219EFE5C005C9DB6 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		B59E168621A01D00007F27CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B5ABEEDD21A3B9F900B0301D /* NewTalk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewTalk-Bridging-Header.h"; sourceTree = "<group>"; };
+		B5ABEEDE21A3B9FA00B0301D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		B5ABEEDF21A3B9FB00B0301D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		B5ABEEE121A3BCEF00B0301D /* GradientSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSwift.swift; sourceTree = "<group>"; };
 		B5B751A8219B011E00D94DF0 /* NewTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B751AB219B011E00D94DF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5B751B5219B012300D94DF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,7 +130,7 @@
 		B542D08E219EE7AF005C9DB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B542D0B9219EFC89005C9DB6 /* RoundedRectBtn.swift */,
+				B5ABEEE121A3BCEF00B0301D /* GradientSwift.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +185,16 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		B5ABEEDC21A3B9E000B0301D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5ABEEDE21A3B9FA00B0301D /* SWRevealViewController.h */,
+				B5ABEEDF21A3B9FB00B0301D /* SWRevealViewController.m */,
+				B5ABEEDD21A3B9F900B0301D /* NewTalk-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B5B7519F219B011E00D94DF0 = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +216,7 @@
 		B5B751AA219B011E00D94DF0 /* NewTalk */ = {
 			isa = PBXGroup;
 			children = (
+				B5ABEEDC21A3B9E000B0301D /* Supporting Files */,
 				B542D092219EE95C005C9DB6 /* fonts */,
 				B542D090219EE7B5005C9DB6 /* Services */,
 				B542D08D219EE79E005C9DB6 /* Controller */,
@@ -260,6 +275,7 @@
 				TargetAttributes = {
 					B5B751A7219B011E00D94DF0 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -367,12 +383,13 @@
 			files = (
 				B5E6097F219FEBD70021F8C9 /* AuthVC.swift in Sources */,
 				B5E6098321A014280021F8C9 /* MyTabbarClassVC.swift in Sources */,
+				B5ABEEE221A3BCEF00B0301D /* GradientSwift.swift in Sources */,
 				B542D0BC219EFE5C005C9DB6 /* SignUpVC.swift in Sources */,
 				B5B751AC219B011E00D94DF0 /* AppDelegate.swift in Sources */,
 				B5FC25F4219FCE1A002287AF /* AuthService.swift in Sources */,
 				B5E6097D219FDC9C0021F8C9 /* Handy.swift in Sources */,
 				B5C2C468219F3CDD00E6D3EC /* Bin2Kbd.swift in Sources */,
-				B542D0BA219EFC89005C9DB6 /* RoundedRectBtn.swift in Sources */,
+				B5ABEEE021A3B9FB00B0301D /* SWRevealViewController.m in Sources */,
 				B5E60981219FEDCA0021F8C9 /* MeVC.swift in Sources */,
 				B5C2C43C219F17C000E6D3EC /* BindKbd.swift in Sources */,
 				B5E6098521A018730021F8C9 /* AddFriendsVC.swift in Sources */,
@@ -524,6 +541,7 @@
 			baseConfigurationReference = 17F401594EA56CFA29394BC2 /* Pods-NewTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q33X652UWU;
 				INFOPLIST_FILE = NewTalk/Info.plist;
@@ -534,6 +552,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seansaoirse.NewTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewTalk/Supporting Files/NewTalk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -544,6 +564,7 @@
 			baseConfigurationReference = 03556B118AF5A131037BA145 /* Pods-NewTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q33X652UWU;
 				INFOPLIST_FILE = NewTalk/Info.plist;
@@ -554,6 +575,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seansaoirse.NewTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewTalk/Supporting Files/NewTalk-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

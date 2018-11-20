@@ -9,9 +9,13 @@
 import UIKit
 import Firebase
 class MeVC: UIViewController {
-
+    
+    @IBOutlet weak var menuBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+       menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer()) // to slide close open
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
         // Do any additional setup after loading the view.
     }

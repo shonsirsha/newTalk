@@ -11,7 +11,7 @@ import UIKit
 class LoginVC: UIViewController {
     
     @IBOutlet weak var loginStatusLabel: UILabel!
-    @IBOutlet weak var loginBtn: RoundedRectBtn!
+    @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
@@ -29,7 +29,8 @@ class LoginVC: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.677764118, green: 0.677764118, blue: 0.677764118, alpha: 1)])
     }
     
-    @IBAction func loginBtnPressed(_ sender: Any) {
+    
+    @IBAction func lginBtnPressed(_ sender: Any) {
         AuthService.instance.loginUser(email: emailField.text!, password: passwordField.text!) { (success, loginErr) in
             if success{
                 self.dismiss(animated: true, completion: nil)
@@ -39,6 +40,7 @@ class LoginVC: UIViewController {
             }
         }
     }
+
     @IBAction func closeBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

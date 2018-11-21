@@ -16,8 +16,14 @@ class AddFriendsVC: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var addBtn: UIButton!
     var goingToAddUserId = ""
+    var myUid = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DataService.instance.getTalkId(uid: (Auth.auth().currentUser?.uid)!) { (returnedUID) in
+            self.myUid = returnedUID
+            print(self.myUid)
+        }
         unameField.attributedPlaceholder = NSAttributedString(string: "Enter your friend's username",
                                                               attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.6784313725, green: 0.6784313725, blue: 0.6784313725, alpha: 1)])
         addBtn.isHidden = true
@@ -61,13 +67,18 @@ class AddFriendsVC: UIViewController,UITextFieldDelegate{
         }
     }
     @IBAction func addBtnPressed(_ sender: Any) {
-        let userData = ["talkId": unameField.text!, "uid": goingToAddUserId, "notif": 0] as [String:Any]
+       
+            let userData = ["talkId": unameField.text!, "uid": goingToAddUserId, "notif": 0] as [String:Any]
+            
+            let myData = ["talkId": myUid ,"uid": (Auth.auth().currentUser?.uid)!, "notif": 0] as [String:Any]
+            
+            DataService.instance.addFriend(hisHerUid: goingToAddUserId, uid: (Auth.auth().currentUser?.uid)!, userData: userData, myData: myData)
+            
+            self.addBtn.isHidden = true
+            friendStatusLabel.isHidden = false
+            friendStatusLabel.text = "Added"
+
         
-        DataService.instance.addFriend(hisHerUid: goingToAddUserId, uid: (Auth.auth().currentUser?.uid)!, userData: userData)
-        
-        self.addBtn.isHidden = true
-        friendStatusLabel.isHidden = false
-        friendStatusLabel.text = "Added"
 
     }
     

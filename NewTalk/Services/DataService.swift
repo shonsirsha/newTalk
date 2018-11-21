@@ -44,8 +44,10 @@ class DataService{
         }
     }
     
-    func addFriend(hisHerUid: String, uid: String, userData: Dictionary<String, Any>){
+    func addFriend(hisHerUid: String, uid: String, userData: Dictionary<String, Any>, myData: Dictionary<String, Any>){
     REF_USER.child(uid).child("friends").child(hisHerUid).updateChildValues(userData)
+        
+    REF_USER.child(hisHerUid).child("friends").child(uid).updateChildValues(myData)
     }
     
     func checkIfFriends(uid: String, hisHerUid: String, isFriend: @escaping(_ status: Bool)->()){
@@ -75,6 +77,50 @@ class DataService{
            
         }
     }
+
+    func sendChat(uid: String, hisHerUid: String, message: String , isSent: @escaping(_ status: Bool)->()){
+        REF_USER.child(uid).child("chat").child(hisHerUid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message])
+        
+        REF_USER.child(uid).child("recentchat").child(hisHerUid).updateChildValues(["with":hisHerUid, "message": message , "time":NSDate().timeIntervalSince1970])
+        
+        REF_USER.child(hisHerUid).child("chat").child(uid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message])
+        
+        REF_USER.child(hisHerUid).child("recentchat").child(uid).updateChildValues(["with":uid, "message": message, "time":NSDate().timeIntervalSince1970])
+    }
+    
+    func getAllMyChats(uid: String, handler: @escaping(_ chatObj: [MsgForCell])->()){
+        var chatObjArr = [MsgForCell]()
+        
+        REF_USER.child(uid).child("recentchat").queryOrdered(byChild: "time").observe(DataEventType.value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {return}
+            for chat in snapshot{
+                let with = chat.childSnapshot(forPath: "with").value as! String
+                let msg = chat.childSnapshot(forPath: "message").value as! String
+                let time = chat.childSnapshot(forPath: "time").value as! Double
+                
+                let message = MsgForCell(talkWith: with, content: msg, time: time)
+                chatObjArr.insert(message, at: 0)
+            }
+           
+            handler(chatObjArr)
+            chatObjArr = [MsgForCell]()
+            
+        }
+    }
+    
+    func getTalkId(uid: String, myTalkId: @escaping(_ talkId: String)->()){
+        REF_USER.observe(DataEventType.value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else{return}
+            for user in snapshot{
+                if user.key == uid{
+                    myTalkId(user.childSnapshot(forPath: "talkId").value as! String)
+                }
+            }
+            
+        }
+        }
+    }
+    
     
     
     
@@ -82,4 +128,4 @@ class DataService{
         REF_USER.queryOrdered(byChild: "friends").queryEqual(toValue: username)
     }*/
     
-}
+

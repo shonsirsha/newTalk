@@ -14,6 +14,7 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var friendsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +23,6 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer()) // to slide close open
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        
-        
-        
-       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,8 +30,15 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
         DataService.instance.checkMyFriends(uid: (Auth.auth().currentUser?.uid)!) { (friendTalkIds) in
             self.friendTalkIdsArray = friendTalkIds
             self.tableView.reloadData()
+            self.friendsLabel.text = "All friends (\(self.friendTalkIdsArray.count))"
             print(self.friendTalkIdsArray)
         }
+    }
+    
+   
+    
+    @IBAction func unwindFromChatIndividualVC(unwindSegue: UIStoryboardSegue){
+     
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,13 +61,21 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toChatIndividualVC", sender: self)
+    }
     
-    @IBAction func testZ(_ sender: Any) {
-        DataService.instance.checkMyFriends(uid: (Auth.auth().currentUser?.uid)!) { (friendTalkIds) in
-            self.friendTalkIdsArray = friendTalkIds
-            print(self.friendTalkIdsArray)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let ixPath = tableView.indexPathForSelectedRow{
+            if segue.identifier == "toChatIndividualVC"{
+                if let chatIndividualVC = segue.destination as? ChatIndividualVC {
+                    chatIndividualVC.hisHerTalkId = friendTalkIdsArray[ixPath.row]
+                }
+            }
         }
     }
+  
+    
     
     
 

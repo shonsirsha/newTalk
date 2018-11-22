@@ -25,9 +25,11 @@ class ChatVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil{
         DataService.instance.getAllMyChats(uid: (Auth.auth().currentUser?.uid)!) { (returnedArr) in
             self.messagesArr = returnedArr
             self.tableView.reloadData()
+        }
         }
     }
     
@@ -40,7 +42,11 @@ class ChatVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
 
         let recentChatsObj = messagesArr[indexPath.row]
-        cell.configureCell(name: recentChatsObj.talkWith, message: recentChatsObj.content)
+       
+        DataService.instance.getDisplayName(uid: recentChatsObj.talkWith) { (returnedDisplayName) in
+              cell.configureCell(name: returnedDisplayName, message: recentChatsObj.content)
+        }
+        
         return cell
     }
     

@@ -20,7 +20,8 @@ class AuthService{
                 return
             }
             
-            let userData = ["email": authData.user.email, "talkId": talkId, "uid": Auth.auth().currentUser?.uid]
+            let userData = ["email": authData.user.email, "talkId": talkId, "uid": Auth.auth().currentUser?.uid, "displayName":talkId]
+            
             DataService.instance.createDBUser(uid: authData.user.uid, userData: userData)
             userCreationComplete(true, nil)
             

@@ -23,6 +23,7 @@
 		B5ABEEE221A3BCEF00B0301D /* GradientSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ABEEE121A3BCEF00B0301D /* GradientSwift.swift */; };
 		B5B751AC219B011E00D94DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B751AB219B011E00D94DF0 /* AppDelegate.swift */; };
 		B5B751B6219B012300D94DF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5B751B4219B012300D94DF0 /* LaunchScreen.storyboard */; };
+		B5C0271421A70A3F00997559 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0271321A70A3F00997559 /* EditProfileVC.swift */; };
 		B5C2C438219F15EF00E6D3EC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2C437219F15EF00E6D3EC /* LoginVC.swift */; };
 		B5C2C43C219F17C000E6D3EC /* BindKbd.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2C43B219F17C000E6D3EC /* BindKbd.swift */; };
 		B5C2C468219F3CDD00E6D3EC /* Bin2Kbd.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2C467219F3CDD00E6D3EC /* Bin2Kbd.swift */; };
@@ -95,6 +96,7 @@
 		B5B751AB219B011E00D94DF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5B751B5219B012300D94DF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5B751B7219B012300D94DF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5C0271321A70A3F00997559 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		B5C2C437219F15EF00E6D3EC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B5C2C43B219F17C000E6D3EC /* BindKbd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindKbd.swift; sourceTree = "<group>"; };
 		B5C2C467219F3CDD00E6D3EC /* Bin2Kbd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bin2Kbd.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				B59EE49421A3E61100025C18 /* ProfileSideVC.swift */,
 				B5532EA821A4425D006187AB /* ChatVC.swift */,
 				B5532EAC21A44E95006187AB /* ChatIndividualVC.swift */,
+				B5C0271321A70A3F00997559 /* EditProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				B542D0BC219EFE5C005C9DB6 /* SignUpVC.swift in Sources */,
 				B5B751AC219B011E00D94DF0 /* AppDelegate.swift in Sources */,
 				B59EE49521A3E61100025C18 /* ProfileSideVC.swift in Sources */,
+				B5C0271421A70A3F00997559 /* EditProfileVC.swift in Sources */,
 				B5FC25F4219FCE1A002287AF /* AuthService.swift in Sources */,
 				B5532EA921A4425D006187AB /* ChatVC.swift in Sources */,
 				B59EE49721A3F50E00025C18 /* FriendsCell.swift in Sources */,

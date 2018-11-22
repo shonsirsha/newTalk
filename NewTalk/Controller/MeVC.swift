@@ -27,11 +27,13 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DataService.instance.checkMyFriends(uid: (Auth.auth().currentUser?.uid)!) { (friendTalkIds) in
-            self.friendTalkIdsArray = friendTalkIds
-            self.tableView.reloadData()
-            self.friendsLabel.text = "All friends (\(self.friendTalkIdsArray.count))"
-            print(self.friendTalkIdsArray)
+        if Auth.auth().currentUser != nil{
+            DataService.instance.checkMyFriends(uid: (Auth.auth().currentUser?.uid)!) { (friendTalkIds) in
+                self.friendTalkIdsArray = friendTalkIds
+                self.tableView.reloadData()
+                self.friendsLabel.text = "All friends (\(self.friendTalkIdsArray.count))"
+                print(self.friendTalkIdsArray)
+            }
         }
     }
     

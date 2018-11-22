@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let authVC = storyBoard.instantiateViewController(withIdentifier: "AuthVC")
             window?.makeKeyAndVisible()
             window?.rootViewController?.present(authVC, animated: true, completion: nil)
-            
         }else{
             
         }

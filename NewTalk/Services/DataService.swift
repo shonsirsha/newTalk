@@ -119,6 +119,31 @@ class DataService{
             
         }
         }
+    
+    func getDisplayName(uid: String, myDisplayName: @escaping(_ displayName: String)->()){
+        REF_USER.observe(DataEventType.value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else{return}
+            for user in snapshot{
+                if user.key == uid{
+                    myDisplayName(user.childSnapshot(forPath: "displayName").value as! String)
+                }
+            }
+            
+        }
+    }
+    
+    func setDisplayName(uid: String, displayName: String,isDone: @escaping(_ status: Bool)->()){
+        REF_USER.child(uid).updateChildValues(["displayName": displayName]) { (err, DatabaseReference) in
+            if err==nil{
+                isDone(true)
+            }else{
+                isDone(false)
+                print(String(describing:err))
+            }
+        }
+    }
+    
+    
     }
     
     

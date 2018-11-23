@@ -479,13 +479,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUP-BO-eCT">
-                                                    <rect key="frame" x="15" y="26" width="325" height="0.0"/>
+                                                    <rect key="frame" x="15" y="26" width="270" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xp-Rt-eBo">
-                                                    <rect key="frame" x="15" y="74" width="315" height="0.0"/>
+                                                    <rect key="frame" x="15" y="74" width="260" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.56228513127828383" green="0.57215740564343454" blue="0.61815910532994922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -523,6 +523,7 @@
                     <tabBarItem key="tabBarItem" title="Chats" image="chatTabBarIcon" selectedImage="chatTabBarIcon" id="I4S-6Y-SEi"/>
                     <connections>
                         <outlet property="tableView" destination="EAT-1i-uYq" id="dTK-3E-kGO"/>
+                        <segue destination="gbS-Ip-7Wp" kind="show" identifier="toIndividualChatFromChats" id="aQm-ge-L3J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTM-Gk-mwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -541,10 +542,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gZ-W9-OSz">
-                                        <rect key="frame" x="65" y="50" width="270" height="0.0"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="EHT-qj-JPn"/>
-                                        </constraints>
+                                        <rect key="frame" x="65" y="50" width="235" height="0.0"/>
                                         <fontDescription key="fontDescription" name="SoinSansNeue-Bold" family="Soin Sans Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -557,7 +555,7 @@
                                         </constraints>
                                         <state key="normal" image="backButton"/>
                                         <connections>
-                                            <segue destination="j96-bY-4pq" kind="unwind" identifier="backToFriendsVC" unwindAction="unwindFromChatIndividualVCWithUnwindSegue:" id="AUL-La-t71"/>
+                                            <segue destination="j96-bY-4pq" kind="unwind" unwindAction="unwindToChatVCWithUnwindSegue:" id="E7X-TH-S0u"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -567,6 +565,7 @@
                                     <constraint firstItem="8gZ-W9-OSz" firstAttribute="leading" secondItem="fVw-yG-vk2" secondAttribute="trailing" constant="30" id="c6c-wu-bU7"/>
                                     <constraint firstItem="fVw-yG-vk2" firstAttribute="leading" secondItem="n9X-uk-WUg" secondAttribute="leading" constant="15" id="g0g-rA-Rm7"/>
                                     <constraint firstItem="fVw-yG-vk2" firstAttribute="top" secondItem="n9X-uk-WUg" secondAttribute="top" constant="40" id="mEi-P4-nhf"/>
+                                    <constraint firstAttribute="trailing" secondItem="8gZ-W9-OSz" secondAttribute="trailing" constant="20" id="xJV-BB-POB"/>
                                     <constraint firstAttribute="height" constant="73" id="yCd-iP-nr1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -615,15 +614,92 @@
                                     <constraint firstAttribute="bottom" secondItem="MYp-go-0JF" secondAttribute="bottom" constant="12" id="x5q-q1-Dwd"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="36" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8hz-v1-Aex">
+                                <rect key="frame" x="0.0" y="73" width="320" height="435"/>
+                                <color key="backgroundColor" red="0.16023316979408264" green="0.17251795530319214" blue="0.18471300601959229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bubbleCell" rowHeight="36" id="cMl-xk-4sf" customClass="ChatIndividualCell" customModule="NewTalk" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="36"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cMl-xk-4sf" id="bO1-dh-XTF">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Hello World" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yP9-sV-aUN" customClass="PaddingLabel" customModule="NewTalk" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="5" width="110" height="26"/>
+                                                    <color key="backgroundColor" red="0.9696621192893401" green="0.9696621192893401" blue="0.9696621192893401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.19909977791878175" green="0.19909977791878175" blue="0.19909977791878175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="topInset">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Hello World" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aV-Qz-rDL" customClass="PaddingLabel" customModule="NewTalk" customModuleProvider="target">
+                                                    <rect key="frame" x="200" y="5" width="110" height="26"/>
+                                                    <color key="backgroundColor" red="0.1042484914" green="0.82977078049999997" blue="0.4633496091" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="topInset">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="yP9-sV-aUN" secondAttribute="bottom" constant="5" id="6Ed-IK-ySP"/>
+                                                <constraint firstItem="3aV-Qz-rDL" firstAttribute="leading" secondItem="bO1-dh-XTF" secondAttribute="leading" priority="749" constant="50" id="Bxb-ES-kgs"/>
+                                                <constraint firstItem="3aV-Qz-rDL" firstAttribute="top" secondItem="bO1-dh-XTF" secondAttribute="top" constant="5" id="Iiv-zQ-IkR"/>
+                                                <constraint firstItem="yP9-sV-aUN" firstAttribute="top" secondItem="bO1-dh-XTF" secondAttribute="top" constant="5" id="LRL-Al-Ow0"/>
+                                                <constraint firstAttribute="trailing" secondItem="yP9-sV-aUN" secondAttribute="trailing" priority="749" constant="50" id="NDb-L9-dTW"/>
+                                                <constraint firstAttribute="trailing" secondItem="3aV-Qz-rDL" secondAttribute="trailing" constant="10" id="Ssj-qX-nBe"/>
+                                                <constraint firstItem="yP9-sV-aUN" firstAttribute="leading" secondItem="bO1-dh-XTF" secondAttribute="leading" constant="10" id="p8g-Du-Uf1"/>
+                                                <constraint firstAttribute="bottom" secondItem="3aV-Qz-rDL" secondAttribute="bottom" constant="5" id="poT-Di-7UI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.16023316979999999" green="0.1725179553" blue="0.18471300600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="incomingLabel" destination="yP9-sV-aUN" id="e01-ec-6tn"/>
+                                            <outlet property="outgoingLabel" destination="3aV-Qz-rDL" id="aPQ-9i-SKs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.16023316979408264" green="0.17251795530319214" blue="0.18471300601959229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="n9X-uk-WUg" firstAttribute="trailing" secondItem="01W-fT-OMn" secondAttribute="trailing" id="BH2-dm-Jay"/>
                             <constraint firstItem="n9X-uk-WUg" firstAttribute="leading" secondItem="01W-fT-OMn" secondAttribute="leading" id="Bxk-HZ-5bS"/>
+                            <constraint firstItem="8hz-v1-Aex" firstAttribute="trailing" secondItem="01W-fT-OMn" secondAttribute="trailing" id="H5J-uR-grH"/>
                             <constraint firstItem="n9X-uk-WUg" firstAttribute="top" secondItem="PpL-yD-e1P" secondAttribute="top" id="MMY-Jj-AmZ"/>
                             <constraint firstItem="D9C-2q-s50" firstAttribute="bottom" secondItem="01W-fT-OMn" secondAttribute="bottom" id="PJl-iE-5Io"/>
                             <constraint firstItem="D9C-2q-s50" firstAttribute="leading" secondItem="01W-fT-OMn" secondAttribute="leading" id="UMA-fo-6WL"/>
+                            <constraint firstItem="8hz-v1-Aex" firstAttribute="leading" secondItem="01W-fT-OMn" secondAttribute="leading" id="VUr-7L-Sp2"/>
+                            <constraint firstItem="8hz-v1-Aex" firstAttribute="top" secondItem="n9X-uk-WUg" secondAttribute="bottom" id="bg2-xZ-e4e"/>
                             <constraint firstItem="D9C-2q-s50" firstAttribute="trailing" secondItem="01W-fT-OMn" secondAttribute="trailing" id="bte-m6-IAu"/>
+                            <constraint firstItem="D9C-2q-s50" firstAttribute="top" secondItem="8hz-v1-Aex" secondAttribute="bottom" id="klf-C0-lgN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="01W-fT-OMn"/>
                     </view>
@@ -632,13 +708,15 @@
                         <outlet property="btmConstraint" destination="PJl-iE-5Io" id="FSa-j0-l9h"/>
                         <outlet property="chatTextView" destination="MYp-go-0JF" id="L2H-7O-2cH"/>
                         <outlet property="nameLabel" destination="8gZ-W9-OSz" id="vaS-8j-h8C"/>
+                        <outlet property="tableView" destination="8hz-v1-Aex" id="dtf-wd-Qt4"/>
+                        <outlet property="tableViewBottomConstraint" destination="klf-C0-lgN" id="zmg-cs-Udy"/>
                         <outlet property="textField" destination="MYp-go-0JF" id="0EX-rH-SDD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wng-Ys-AIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="j96-bY-4pq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1508.6956521739132" y="219.64285714285714"/>
+            <point key="canvasLocation" x="1748" y="220"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="dWB-ev-1gz">
@@ -1154,4 +1232,7 @@
         <image name="smackBurger" width="40" height="40"/>
         <image name="test" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="aQm-ge-L3J"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -79,11 +79,11 @@ class DataService{
     }
 
     func sendChat(uid: String, hisHerUid: String, message: String , isSent: @escaping(_ status: Bool)->()){
-        REF_USER.child(uid).child("chat").child(hisHerUid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message])
+        REF_USER.child(uid).child("chat").child(hisHerUid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message,"time":NSDate().timeIntervalSince1970])
         
         REF_USER.child(uid).child("recentchat").child(hisHerUid).updateChildValues(["with":hisHerUid, "message": message , "time":NSDate().timeIntervalSince1970])
         
-        REF_USER.child(hisHerUid).child("chat").child(uid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message])
+        REF_USER.child(hisHerUid).child("chat").child(uid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message,"time":NSDate().timeIntervalSince1970])
         
         REF_USER.child(hisHerUid).child("recentchat").child(uid).updateChildValues(["with":uid, "message": message, "time":NSDate().timeIntervalSince1970])
     }
@@ -140,6 +140,27 @@ class DataService{
                 isDone(false)
                 print(String(describing:err))
             }
+        }
+    }
+    
+    func getFullChat(uid: String, hisHerUid: String, handler: @escaping(_ chatObj: [MsgForCell])->()){
+        
+        var chatObjArr = [MsgForCell]()
+        REF_USER.child(uid).child("chat").child(hisHerUid).queryOrdered(byChild: "time").observe(DataEventType.value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {return}
+            
+            for chat in snapshot{
+                let from = chat.childSnapshot(forPath: "from").value as! String
+                let msg = chat.childSnapshot(forPath: "message").value as! String
+                let time = chat.childSnapshot(forPath: "time").value as! Double
+                
+                let message = MsgForCell(talkWith: from, content: msg, time: time)
+                chatObjArr.insert(message, at: 0)
+            }
+            
+            handler(chatObjArr.reversed())
+            chatObjArr = [MsgForCell]()
+            
         }
     }
     

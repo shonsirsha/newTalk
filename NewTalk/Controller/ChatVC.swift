@@ -40,15 +40,36 @@ class ChatVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell") as? ChatCell else {return UITableViewCell()}
 
-
-        let recentChatsObj = messagesArr[indexPath.row]
        
+        let recentChatsObj = messagesArr[indexPath.row]
         DataService.instance.getDisplayName(uid: recentChatsObj.talkWith) { (returnedDisplayName) in
               cell.configureCell(name: returnedDisplayName, message: recentChatsObj.content)
         }
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let ixPath = tableView.indexPathForSelectedRow{
+            if segue.identifier == "toIndividualChatFromChats"{
+                if let chatIndividualVC = segue.destination as? ChatIndividualVC {
+                    chatIndividualVC.hisHerUid = messagesArr[ixPath.row].talkWith
+                }
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toIndividualChatFromChats", sender: self)
+    }
+    
+    @IBAction func unwindToChatVC(unwindSegue: UIStoryboardSegue){
+        
+    }
+    
+    
+    
+    
     
     
 

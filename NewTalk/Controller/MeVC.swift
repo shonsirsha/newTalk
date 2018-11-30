@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
-    var friendTalkIdsArray = [String]()
+    var friendsUidArr = [String]()
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,7 +20,7 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-       menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+    menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer()) // to slide close open
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
@@ -29,10 +29,10 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil{
             DataService.instance.checkMyFriends(uid: (Auth.auth().currentUser?.uid)!) { (friendTalkIds) in
-                self.friendTalkIdsArray = friendTalkIds
+                self.friendsUidArr = friendTalkIds
                 self.tableView.reloadData()
-                self.friendsLabel.text = "All friends (\(self.friendTalkIdsArray.count))"
-                print(self.friendTalkIdsArray)
+                self.friendsLabel.text = "All friends (\(self.friendsUidArr.count))"
+                print(self.friendsUidArr)
             }
         }
     }
@@ -44,7 +44,7 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendTalkIdsArray.count
+        return friendsUidArr.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,9 +54,9 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell") as? FriendsCell else{return UITableViewCell()}
         
-        let talkId = friendTalkIdsArray[indexPath.row]
+        let uid = friendsUidArr[indexPath.row]
         
-        cell.configureCell(talkId: talkId)
+        cell.configureCell(talkId: uid)
         
         
         return cell
@@ -71,7 +71,7 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
         if let ixPath = tableView.indexPathForSelectedRow{
             if segue.identifier == "toChatIndividualVC"{
                 if let chatIndividualVC = segue.destination as? ChatIndividualVC {
-                    chatIndividualVC.hisHerTalkId = friendTalkIdsArray[ixPath.row]
+                    chatIndividualVC.hisHerUid = friendsUidArr[ixPath.row]
                 }
             }
         }

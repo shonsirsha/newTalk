@@ -65,13 +65,13 @@ class DataService{
         REF_USER.child(uid).child("friends").observe(DataEventType.value) { (friendsObject) in
             guard let friendsObject = friendsObject.children.allObjects as? [DataSnapshot] else {return}
             
-            for friendsTalkId in friendsObject{
-                let talkId = friendsTalkId.childSnapshot(forPath: "talkId").value as! String
+            for friendsUid in friendsObject{
+                let theirUid = friendsUid.childSnapshot(forPath: "uid").value as! String
                 
-                friendsArr.insert(talkId, at: 0)
+                friendsArr.insert(theirUid, at: 0)
             }
             
-            friendsArr = friendsArr.sorted(by: <)
+            
             handler(friendsArr)
             friendsArr = [String]()
            
@@ -94,9 +94,10 @@ class DataService{
         REF_USER.child(uid).child("recentchat").queryOrdered(byChild: "time").observe(DataEventType.value) { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {return}
             for chat in snapshot{
-                let with = chat.childSnapshot(forPath: "with").value as! String
                 let msg = chat.childSnapshot(forPath: "message").value as! String
                 let time = chat.childSnapshot(forPath: "time").value as! Double
+                let with = chat.childSnapshot(forPath: "with").value as! String
+                
                 
                 let message = MsgForCell(talkWith: with, content: msg, time: time)
                 chatObjArr.insert(message, at: 0)

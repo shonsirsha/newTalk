@@ -8,38 +8,147 @@
 
 import UIKit
 import Firebase
+
+
+var hasPicked = false
+var currentVC = "chatIndividual"
 class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
-  
-   /* var msgs = ["Hi", "Wassup","Yo", "Nuttin", "Nuttin Asd asd asd asd asd asd <3 hahahaha FUCK YOO BICHAS NIGGA MANE","Hi my name is sean saoirse loolll im from indonesia BRUDAA WOOOO asdasd asdasd asdasds asdasd asdas dasd asdasd", "hahahaha FUCK YOO BICHAS NIGGA MANE","Hi my name is sean saoirse loolll im from indonesia BRUDAA WOOOO asdasd asdasd asdasds asdasd asdas dasd asdasd"]
+    @IBOutlet weak var hiddenBtn: UIButton!
     
-    var msgs2 = ["Hi", "Wassup","Yo", "Nuttin", "Nuttin Asd asd asd asd asd asd <3 hahahaha FUCK YOO BICHAS NIGGA MANE","Hi my name is sean saoirse loolll im from indonesia BRUDAA WOOOO asdasd asdasd asdasds asdasd asdas dasd asdasd", "hahahaha FUCK YOO BICHAS NIGGA MANE","Hi my name is sean saoirse loolll im from indonesia BRUDAA WOOOO asdasd asdasd asdasds asdasd asdas dasd asdasd"]*/
-    
+    var hasOpened = false
     
     var hisHerTalkId: String = ""
     var hisHerUid: String = ""
-
-   
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+   var control = false
+    @IBOutlet weak var btc: NSLayoutConstraint!
+    @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btmConstraint: NSLayoutConstraint!
-    @IBOutlet weak var chatTextView: UITextView!
-    @IBOutlet weak var bottomView: UIView!
-    @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
+    var customInputViewChat: UIView!
+
     var messagesArr = [MsgForCell]()
+    var sendButton: UIButton!
+    var addMediaButtom: UIButton!
+    let textField = FlexibleTextView()
+    override var inputAccessoryView: UIView?{
+        if customInputViewChat == nil{
+            customInputViewChat = CustomView()
+            customInputViewChat.backgroundColor = UIColor.groupTableViewBackground
+            textField.placeholder = "Type your message..."
+            textField.font = .systemFont(ofSize: 15)
+            textField.layer.cornerRadius = 17
+            
+            customInputViewChat.autoresizingMask = .flexibleHeight
+            
+            customInputViewChat.addSubview(textField)
+            
+            sendButton = UIButton(type: .system)
+            sendButton.isEnabled = true
+            sendButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+            sendButton.setImage(UIImage(imageLiteralResourceName: "send").withRenderingMode(.alwaysTemplate), for: .normal)
+            sendButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 6, bottom: 4, right: 6)
+            sendButton.addTarget(self, action: #selector(handleSend), for: .touchUpInside)
+            customInputViewChat?.addSubview(sendButton)
+            
+            addMediaButtom = UIButton(type: .custom)
+            addMediaButtom.setImage(UIImage(imageLiteralResourceName: "addImage").withRenderingMode(.alwaysTemplate), for: .normal)
+            addMediaButtom.isEnabled = true
+            //addMediaButtom.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+            // addMediaButtom.setTitle("Media", for: .normal)
+            addMediaButtom.contentEdgeInsets = UIEdgeInsets(top: 9, left: 0, bottom: 5, right: 0)
+            addMediaButtom.addTarget(self, action: #selector(handleMediaSend), for: .touchUpInside)
+            customInputViewChat?.addSubview(addMediaButtom)
+            
+            textField.translatesAutoresizingMaskIntoConstraints = false
+            sendButton.translatesAutoresizingMaskIntoConstraints = false
+            addMediaButtom.translatesAutoresizingMaskIntoConstraints = false
+            sendButton.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: NSLayoutConstraint.Axis.horizontal)
+            sendButton.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: NSLayoutConstraint.Axis.horizontal)
+            
+            addMediaButtom.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: NSLayoutConstraint.Axis.horizontal)
+            addMediaButtom.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: NSLayoutConstraint.Axis.horizontal)
+            
+            textField.maxHeight = 80
+            
+            addMediaButtom.leadingAnchor.constraint(
+                equalTo: customInputViewChat.leadingAnchor,
+                constant: 8
+                ).isActive = true
+            
+            addMediaButtom.trailingAnchor.constraint(
+                equalTo: textField.leadingAnchor,
+                constant: -8
+                ).isActive = true
+            
+            /*  addMediaButtom.topAnchor.constraint(
+             equalTo: customInputView.topAnchor,
+             constant: 8
+             ).isActive = true
+             */
+            addMediaButtom.bottomAnchor.constraint(
+                equalTo: customInputViewChat.layoutMarginsGuide.bottomAnchor,
+                constant: -8
+                ).isActive = true
+            
+            textField.trailingAnchor.constraint(
+                equalTo: sendButton.leadingAnchor,
+                constant: 0
+                ).isActive = true
+            
+            textField.topAnchor.constraint(
+                equalTo: customInputViewChat.topAnchor,
+                constant: 8
+                ).isActive = true
+            
+            textField.bottomAnchor.constraint(
+                equalTo: customInputViewChat.layoutMarginsGuide.bottomAnchor,
+                constant: -8
+                ).isActive = true
+            
+            sendButton.leadingAnchor.constraint(
+                equalTo: textField.trailingAnchor,
+                constant: 0
+                ).isActive = true
+            
+            sendButton.trailingAnchor.constraint(
+                equalTo: customInputViewChat.trailingAnchor,
+                constant: -8
+                ).isActive = true
+            
+            sendButton.bottomAnchor.constraint(
+                equalTo: customInputViewChat.layoutMarginsGuide.bottomAnchor,
+                constant: -8
+                ).isActive = true
+            
+
+        }
+        
+        return customInputViewChat
+       
+    }
+    
+ 
+    /*func presentPhotoPicker(sourceType: UIImagePickerController.SourceType) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = sourceType
+        present(picker, animated: true)
+    }*/
+  
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        myTableView.delegate = self
+        myTableView.dataSource = self
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        textField.delegate = self
-        
-        tableView.estimatedRowHeight = 36
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(ChatIndividualVC.keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ChatIndividualVC.keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        myTableView.estimatedRowHeight = 36
+        myTableView.rowHeight = UITableView.automaticDimension
+  
         
         if hisHerUid != ""{
             DataService.instance.getDisplayName(uid: hisHerUid) { (returnedDisplayName) in
@@ -47,7 +156,9 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
             }
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatIndividualVC.keyboardWillShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatIndividualVC.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         if hisHerTalkId != ""{
             DataService.instance.checkUname(talkId: hisHerTalkId) { (isNotFound, returnedHisHerUid) in
@@ -58,7 +169,6 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
                 }
             }
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,30 +176,121 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
         if hisHerUid != ""{
             DataService.instance.getFullChat(uid: (Auth.auth().currentUser?.uid)!, hisHerUid: hisHerUid) { (returnedChatObj) in
                 self.messagesArr = returnedChatObj
-                self.tableView.reloadData()
-                self.scrollToBottom()
-
+                self.myTableView.reloadData()
+                        let lastSectionIndex = self.myTableView.numberOfSections - 1 // last section
+                        let lastRowIndex = self.myTableView.numberOfRows(inSection: lastSectionIndex) - 1 // last row
+                        self.myTableView.scrollToRow(at: IndexPath(row: lastRowIndex, section: lastSectionIndex), at: .bottom, animated: true)
+                        self.myTableView.scrollIndicatorInsets = self.myTableView.contentInset
+                
+                
+            }
+            
+            if hasPicked == true{
+         
+                performSegue(withIdentifier: "toSendPhotoVC", sender: Any?.self)
             }
         }
-        
-
-        
     }
     
-   
+    @IBAction func testBtn(_ sender: ChatIndividualVC) {
+       
+    }
     
-    @IBAction func btnSendPressed(_ sender: Any) {
+    @objc func handleSend() {
         if hisHerUid != ""{
-            if textField.text != ""{
+            if self.textField.text != ""{
                 DataService.instance.sendChat(uid: (Auth.auth().currentUser?.uid)!, hisHerUid: hisHerUid, message: textField.text!) { (sent) in
                     if sent{
                     }else{
                         print("Error")
                     }
                 }
-                textField.text = ""
+                self.textField.text = ""
             }
         }
+    }
+    
+    @objc func handleMediaSend() {
+        
+            let sourcePicker = UIAlertController()
+            let takePhoto = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+                //self.presentPhotoPicker(sourceType: .camera)
+                
+            })
+            
+            let choosePhoto = UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
+                //self.presentPhotoPicker(sourceType: .photoLibrary)
+            })
+            
+            sourcePicker.addAction(takePhoto)
+            sourcePicker.addAction(choosePhoto)
+            
+            sourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+            
+            present(sourcePicker, animated: true, completion: nil)
+        
+        
+    }
+    
+    
+ 
+  @objc func keyboardWillShow(_ notification:Notification) {
+    
+    var contentInsets:UIEdgeInsets
+    print("FIRST!!!")
+    print(myTableView.contentInset)
+    
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height-10, right: 0.0);
+            myTableView.contentInset = contentInsets
+            print(contentInsets)
+            print(myTableView.contentInset)
+        }
+        
+        let lastSectionIndex = myTableView.numberOfSections - 1 // last section
+        let lastRowIndex = myTableView.numberOfRows(inSection: lastSectionIndex) - 1 // last row
+         if myTableView.contentOffset.y >= (myTableView.contentSize.height - myTableView.frame.size.height) {
+
+        if(messagesArr.count > 0){
+            myTableView.scrollToRow(at: IndexPath(row: lastRowIndex, section: lastSectionIndex), at: .bottom, animated: true)
+            myTableView.scrollIndicatorInsets = myTableView.contentInset
+        }
+        
+    }
+    
+    
+    }
+    
+    
+    @objc func keyboardWillHide(_ notification:Notification) {
+        
+        var contentInsets:UIEdgeInsets
+        print("FIRST!!!")
+        print(myTableView.contentInset)
+        
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0);
+                myTableView.contentInset = contentInsets
+                print(contentInsets)
+                print(myTableView.contentInset)
+            }
+            
+            let lastSectionIndex = myTableView.numberOfSections - 1 // last section
+            let lastRowIndex = myTableView.numberOfRows(inSection: lastSectionIndex) - 1 // last row
+        if myTableView.contentOffset.y >= (myTableView.contentSize.height - myTableView.frame.size.height) {
+
+            if(messagesArr.count > 0){
+                myTableView.scrollToRow(at: IndexPath(row: lastRowIndex, section: lastSectionIndex), at: .bottom, animated: true)
+                myTableView.scrollIndicatorInsets = myTableView.contentInset
+            }
+        }
+    }
+    
+ 
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        textField.resignFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,59 +314,27 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
             
             cell.incomingLabel.text = chatObj.content
         }
-       
-        
         return cell
         
     }
-    
-    @objc func keyboardWillShow(sender: NSNotification) {
-        
-        
-        
-        let duration = sender.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        let curve = sender.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-        let beginningFrame = (sender.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let endFrame = (sender.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let deltaY = endFrame.origin.y - beginningFrame.origin.y
-        
-        UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
-            self.bottomView.frame.origin.y += deltaY
-        }, completion: nil)
-       
-        btmConstraint.constant += deltaY
+    @IBAction func backBtnPRessed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @objc func keyboardWillHide(sender: NSNotification) {
-        
-       
-        let duration = sender.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        let curve = sender.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-        let beginningFrame = (sender.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let endFrame = (sender.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let deltaY = endFrame.origin.y - beginningFrame.origin.y
-        
-        UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
-            self.bottomView.frame.origin.y += deltaY
-        }, completion: nil)
-        
-       
-        
-        btmConstraint.constant += deltaY
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        myTableView.setContentOffset(CGPoint(x:0, y:textField.center.y-50), animated: true)
     }
     
-   
-    func scrollToBottom(){
-        DispatchQueue.main.async {
-            let indexPath = IndexPath(row: self.messagesArr.count-1, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    class CustomView: UIView {
+        
+        // this is needed so that the inputAccesoryView is properly sized from the auto layout constraints
+        // actual value is not important
+        
+        override var intrinsicContentSize: CGSize {
+            return CGSize.zero
         }
     }
     
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        chatTextView.resignFirstResponder()
-    }
-
 }

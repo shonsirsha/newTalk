@@ -132,12 +132,12 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     }
     
  
-    /*func presentPhotoPicker(sourceType: UIImagePickerController.SourceType) {
+    func presentPhotoPicker(sourceType: UIImagePickerController.SourceType) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = sourceType
         present(picker, animated: true)
-    }*/
+    }
   
 
     
@@ -212,24 +212,23 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     
     @objc func handleMediaSend() {
         
-            let sourcePicker = UIAlertController()
-            let takePhoto = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-                //self.presentPhotoPicker(sourceType: .camera)
-                
-            })
+        let sourcePicker = UIAlertController()
+        let takePhoto = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            self.presentPhotoPicker(sourceType: .camera)
             
-            let choosePhoto = UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
-                //self.presentPhotoPicker(sourceType: .photoLibrary)
-            })
-            
-            sourcePicker.addAction(takePhoto)
-            sourcePicker.addAction(choosePhoto)
-            
-            sourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        })
         
-            
-            present(sourcePicker, animated: true, completion: nil)
+        let choosePhoto = UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
+            self.presentPhotoPicker(sourceType: .photoLibrary)
+        })
         
+        sourcePicker.addAction(takePhoto)
+        sourcePicker.addAction(choosePhoto)
+        
+        sourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        
+        present(sourcePicker, animated: true, completion: nil)
         
     }
     
@@ -338,3 +337,24 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     
     
 }
+
+extension ChatIndividualVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+    
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {fatalError("No image returned...")}
+        myImage = image
+    
+        hasPicked = true
+    
+    if hasPicked == true{
+        performSegue(withIdentifier: "toSendPhotoVC", sender: self)
+        print("AAAA")
+
+    }
+
+    
+    }
+}
+

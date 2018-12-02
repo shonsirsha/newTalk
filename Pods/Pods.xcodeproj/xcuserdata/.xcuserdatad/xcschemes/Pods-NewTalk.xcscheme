@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5AC10D5DC4DB3E68FE4760DE42BDBD65"
+               BlueprintIdentifier = "6DFAB47E2CC2040A5592C636E70551F7"
                BlueprintName = "Pods-NewTalk"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Pods-NewTalk.framework">

@@ -11,6 +11,5 @@ target 'NewTalk' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
-  pod 'IQKeyboardManagerSwift', '6.0.4'
-  
+  pod 'Firebase/Storage'
 end

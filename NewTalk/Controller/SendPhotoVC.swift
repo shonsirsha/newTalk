@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 var myImage: UIImage!
 
 class SendPhotoVC: UIViewController,UITextViewDelegate {

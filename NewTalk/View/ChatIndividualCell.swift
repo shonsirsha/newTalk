@@ -12,6 +12,10 @@ class ChatIndividualCell: UITableViewCell {
 
     @IBOutlet weak var outgoingLabel: PaddingLabel!
     @IBOutlet weak var incomingLabel: PaddingLabel!
+    @IBOutlet weak var incomingTimeLabel: UILabel!
+    @IBOutlet weak var outgoingTimeLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         var radius: CGFloat
@@ -29,7 +33,6 @@ class ChatIndividualCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

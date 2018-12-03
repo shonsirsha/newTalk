@@ -13,7 +13,6 @@ import Firebase
 var hasPicked = false
 var currentVC = "chatIndividual"
 class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
-    @IBOutlet weak var hiddenBtn: UIButton!
     
     var hasOpened = false
     
@@ -25,8 +24,6 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
    var control = false
     @IBOutlet weak var btc: NSLayoutConstraint!
     @IBOutlet weak var myTableView: UITableView!
-    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var btmConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
     var customInputViewChat: UIView!
 
@@ -145,10 +142,11 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         myTableView.delegate = self
         myTableView.dataSource = self
-        
+       
         myTableView.estimatedRowHeight = 36
         myTableView.rowHeight = UITableView.automaticDimension
   
+       myTableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI));
         
         if hisHerUid != ""{
             DataService.instance.getDisplayName(uid: hisHerUid) { (returnedDisplayName) in
@@ -177,10 +175,10 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
             DataService.instance.getFullChat(uid: (Auth.auth().currentUser?.uid)!, hisHerUid: hisHerUid) { (returnedChatObj) in
                 self.messagesArr = returnedChatObj
                 self.myTableView.reloadData()
-                        let lastSectionIndex = self.myTableView.numberOfSections - 1 // last section
+                        /*let lastSectionIndex = self.myTableView.numberOfSections - 1 // last section
                         let lastRowIndex = self.myTableView.numberOfRows(inSection: lastSectionIndex) - 1 // last row
                         self.myTableView.scrollToRow(at: IndexPath(row: lastRowIndex, section: lastSectionIndex), at: .bottom, animated: true)
-                        self.myTableView.scrollIndicatorInsets = self.myTableView.contentInset
+                        self.myTableView.scrollIndicatorInsets = self.myTableView.contentInset*/
                 
                 
             }
@@ -194,6 +192,12 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     
     @IBAction func testBtn(_ sender: ChatIndividualVC) {
        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let sendPhotoVC = segue.destination as? SendPhotoVC{
+            sendPhotoVC.hisHerUid = hisHerUid
+        }
     }
     
     @objc func handleSend() {
@@ -211,25 +215,24 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     }
     
     @objc func handleMediaSend() {
-        
-        let sourcePicker = UIAlertController()
-        let takePhoto = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-            self.presentPhotoPicker(sourceType: .camera)
+        if hisHerUid != ""{
+            let sourcePicker = UIAlertController()
+            let takePhoto = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+                self.presentPhotoPicker(sourceType: .camera)
+                
+            })
             
-        })
-        
-        let choosePhoto = UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
-            self.presentPhotoPicker(sourceType: .photoLibrary)
-        })
-        
-        sourcePicker.addAction(takePhoto)
-        sourcePicker.addAction(choosePhoto)
-        
-        sourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        
-        present(sourcePicker, animated: true, completion: nil)
-        
+            let choosePhoto = UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
+                self.presentPhotoPicker(sourceType: .photoLibrary)
+            })
+            
+            sourcePicker.addAction(takePhoto)
+            sourcePicker.addAction(choosePhoto)
+            
+            sourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            present(sourcePicker, animated: true, completion: nil)
+        }
     }
     
     
@@ -239,24 +242,26 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     var contentInsets:UIEdgeInsets
     print("FIRST!!!")
     print(myTableView.contentInset)
+    var kbdHeight = 0.0
     
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height-10, right: 0.0);
+            contentInsets = UIEdgeInsets(top: keyboardSize.height-10, left: 0.0, bottom: 0.0, right: 0.0);
             myTableView.contentInset = contentInsets
+            kbdHeight = Double(keyboardSize.height-10)
             print(contentInsets)
             print(myTableView.contentInset)
+            
+            if messagesArr.count > 0{
+                let topIndex = IndexPath(row: 0, section: 0)
+                
+                if (myTableView.contentOffset.y < 90){
+                    myTableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                    myTableView.scrollIndicatorInsets = myTableView.contentInset
+                }
+            }
+           
         }
-        
-        let lastSectionIndex = myTableView.numberOfSections - 1 // last section
-        let lastRowIndex = myTableView.numberOfRows(inSection: lastSectionIndex) - 1 // last row
-         if myTableView.contentOffset.y >= (myTableView.contentSize.height - myTableView.frame.size.height) {
-
-        if(messagesArr.count > 0){
-            myTableView.scrollToRow(at: IndexPath(row: lastRowIndex, section: lastSectionIndex), at: .bottom, animated: true)
-            myTableView.scrollIndicatorInsets = myTableView.contentInset
-        }
-        
-    }
+    
     
     
     }
@@ -273,17 +278,18 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
                 myTableView.contentInset = contentInsets
                 print(contentInsets)
                 print(myTableView.contentInset)
-            }
-            
-            let lastSectionIndex = myTableView.numberOfSections - 1 // last section
-            let lastRowIndex = myTableView.numberOfRows(inSection: lastSectionIndex) - 1 // last row
-        if myTableView.contentOffset.y >= (myTableView.contentSize.height - myTableView.frame.size.height) {
+                
+                
+                if messagesArr.count > 0 {
+                    let topIndex = IndexPath(row: 0, section: 0)
+                    myTableView.scrollIndicatorInsets = myTableView.contentInset
 
-            if(messagesArr.count > 0){
-                myTableView.scrollToRow(at: IndexPath(row: lastRowIndex, section: lastSectionIndex), at: .bottom, animated: true)
-                myTableView.scrollIndicatorInsets = myTableView.contentInset
+
+                }
             }
-        }
+        
+        
+
     }
     
  
@@ -298,21 +304,108 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "bubbleCell") as? ChatIndividualCell else {return UITableViewCell()}
-        
+
         let chatObj = messagesArr[indexPath.row]
+
+        let checkYear = DateFormatter()
+        checkYear.dateFormat = "Y"
+        
+        let checkMonthYear = DateFormatter()
+        checkMonthYear.dateFormat = "MMM Y"
+        
+        let checkDay = DateFormatter()
+        checkDay.dateFormat = "EE dd M yy"
+        
+        let checkDateOfDay = DateFormatter()
+        checkDateOfDay.dateFormat = "dd"
+        
+        let todayEpoch = NSDate().timeIntervalSince1970
+        let todayEpochAsDate = NSDate(timeIntervalSince1970: todayEpoch)
+        let todayYear = checkYear.string(from: todayEpochAsDate as Date)
+        let todayMonthYear = checkMonthYear.string(from: todayEpochAsDate as Date)
+        let todayDate = checkDay.string(from: todayEpochAsDate as Date)
+        let todayDateOfDay = Int(checkDateOfDay.string(from: todayEpochAsDate as Date))
+        
+        let date = NSDate(timeIntervalSince1970: chatObj.time)
+        let chatTimeFormat = DateFormatter()
+        let chatYear = checkYear.string(from: date as Date)
+        let chatMonthYear = checkMonthYear.string(from: date as Date)
+        let chatDay = checkDay.string(from: date as Date)
+        let chatDateOfDay = Int(checkDateOfDay.string(from: date as Date))
         
         if chatObj.talkWith == (Auth.auth().currentUser?.uid)!{ //talkwith here is "from"
+        
             
             cell.outgoingLabel.isHidden = false
+            cell.outgoingTimeLabel.isHidden = false
+            
+            cell.incomingTimeLabel.isHidden = true
             cell.incomingLabel.isHidden = true
             
             cell.outgoingLabel.text = chatObj.content
+            
+            if chatYear == todayYear{//this year
+                if chatMonthYear == todayMonthYear { // this month
+                    chatTimeFormat.dateFormat = "HH:mm"
+                    cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                    if chatDay == todayDate{ // today
+                        
+                    }else if todayDateOfDay! - chatDateOfDay! == 1{ // yesterday
+                        chatTimeFormat.dateFormat = "HH:mm"
+                        cell.outgoingTimeLabel.text = "Yesterday, \(chatTimeFormat.string(from: date as Date))"
+
+                    }else{ // any other day
+                        chatTimeFormat.dateFormat = "dd MMM, HH:mm"
+                        cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                    }
+                }else{ // different month
+                    chatTimeFormat.dateFormat = "EE dd MMM, HH:mm"
+                    cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                }
+            }else{//different year
+                chatTimeFormat.dateFormat = "EE dd MMM, HH:mm yyyy"
+                cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+            }
+            
+            
         }else{
-            cell.outgoingLabel.isHidden = true
+            
+            cell.incomingTimeLabel.isHidden = false
             cell.incomingLabel.isHidden = false
             
+            cell.outgoingTimeLabel.isHidden = true
+            cell.outgoingLabel.isHidden = true
+
             cell.incomingLabel.text = chatObj.content
+            
+            
+            if chatYear == todayYear{//this year
+                if chatMonthYear == todayMonthYear { // this month
+                    chatTimeFormat.dateFormat = "HH:mm"
+                    cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                    if chatDay == todayDate{ // today
+                        
+                    }else if todayDateOfDay! - chatDateOfDay! == 1{ // yesterday
+                        chatTimeFormat.dateFormat = "HH:mm"
+                        cell.incomingTimeLabel.text = "Yesterday, \(chatTimeFormat.string(from: date as Date))"
+                        
+                    }else{ // any other day
+                        chatTimeFormat.dateFormat = "dd MMM, HH:mm"
+                        cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                    }
+                }else{ // different month
+                    chatTimeFormat.dateFormat = "EE dd MMM, HH:mm"
+                    cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                }
+            }else{//different year
+                chatTimeFormat.dateFormat = "EE dd MMM, HH:mm yyyy"
+                cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+            }
+
         }
+        
+        cell.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI));
+        
         return cell
         
     }
@@ -340,12 +433,13 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
 
 extension ChatIndividualVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion: nil)
-        
     
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {fatalError("No image returned...")}
+
         myImage = image
     
+        picker.dismiss(animated: true, completion: nil)
+
         hasPicked = true
     
     if hasPicked == true{

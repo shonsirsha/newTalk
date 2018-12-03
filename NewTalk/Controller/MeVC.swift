@@ -55,9 +55,11 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell") as? FriendsCell else{return UITableViewCell()}
         
         let uid = friendsUidArr[indexPath.row]
-        
-        cell.configureCell(talkId: uid)
-        
+        DataService.instance.getTalkId(uid: uid) { (returnedTalkId) in
+            cell.configureCell(talkId: returnedTalkId)
+
+        }
+
         
         return cell
         

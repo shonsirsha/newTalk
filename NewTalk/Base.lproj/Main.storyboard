@@ -479,13 +479,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUP-BO-eCT">
-                                                    <rect key="frame" x="15" y="26" width="325" height="0.0"/>
+                                                    <rect key="frame" x="15" y="26" width="364" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xp-Rt-eBo">
-                                                    <rect key="frame" x="15" y="74" width="315" height="0.0"/>
+                                                    <rect key="frame" x="15" y="74" width="354" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.56228513127828383" green="0.57215740564343454" blue="0.61815910532994922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -589,7 +589,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Hello World" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yP9-sV-aUN" customClass="PaddingLabel" customModule="NewTalk" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="5" width="87.5" height="26"/>
+                                                    <rect key="frame" x="10" y="5" width="107.5" height="26"/>
                                                     <color key="backgroundColor" red="0.9696621192893401" green="0.9696621192893401" blue="0.9696621192893401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.19909977791878175" green="0.19909977791878175" blue="0.19909977791878175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -610,7 +610,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Hello World" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aV-Qz-rDL" customClass="PaddingLabel" customModule="NewTalk" customModuleProvider="target">
-                                                    <rect key="frame" x="277.5" y="5" width="87.5" height="26"/>
+                                                    <rect key="frame" x="202.5" y="5" width="107.5" height="26"/>
                                                     <color key="backgroundColor" red="0.1042484914" green="0.82977078049999997" blue="0.4633496091" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -630,14 +630,32 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-f6-njU">
+                                                    <rect key="frame" x="122.5" y="20" width="30" height="11"/>
+                                                    <fontDescription key="fontDescription" name="SoinSansNeue-Light" family="Soin Sans Neue" pointSize="11"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZX-aJ-Qe1">
+                                                    <rect key="frame" x="167.5" y="20" width="30" height="11"/>
+                                                    <fontDescription key="fontDescription" name="SoinSansNeue-Light" family="Soin Sans Neue" pointSize="11"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="iXX-f6-njU" firstAttribute="top" secondItem="bO1-dh-XTF" secondAttribute="top" constant="20" id="04g-eo-6lU"/>
                                                 <constraint firstAttribute="bottom" secondItem="yP9-sV-aUN" secondAttribute="bottom" constant="5" id="6Ed-IK-ySP"/>
+                                                <constraint firstItem="iXX-f6-njU" firstAttribute="leading" secondItem="yP9-sV-aUN" secondAttribute="trailing" constant="5" id="An1-A9-2FZ"/>
+                                                <constraint firstItem="3aV-Qz-rDL" firstAttribute="leading" secondItem="DZX-aJ-Qe1" secondAttribute="trailing" constant="5" id="BCj-8Q-p0I"/>
                                                 <constraint firstItem="3aV-Qz-rDL" firstAttribute="leading" secondItem="bO1-dh-XTF" secondAttribute="leading" priority="749" constant="50" id="Bxb-ES-kgs"/>
                                                 <constraint firstItem="3aV-Qz-rDL" firstAttribute="top" secondItem="bO1-dh-XTF" secondAttribute="top" constant="5" id="Iiv-zQ-IkR"/>
                                                 <constraint firstItem="yP9-sV-aUN" firstAttribute="top" secondItem="bO1-dh-XTF" secondAttribute="top" constant="5" id="LRL-Al-Ow0"/>
                                                 <constraint firstAttribute="trailing" secondItem="yP9-sV-aUN" secondAttribute="trailing" priority="749" constant="50" id="NDb-L9-dTW"/>
                                                 <constraint firstAttribute="trailing" secondItem="3aV-Qz-rDL" secondAttribute="trailing" constant="10" id="Ssj-qX-nBe"/>
+                                                <constraint firstAttribute="bottom" secondItem="iXX-f6-njU" secondAttribute="bottom" constant="5" id="VfI-va-mOj"/>
+                                                <constraint firstAttribute="bottom" secondItem="DZX-aJ-Qe1" secondAttribute="bottom" constant="5" id="glf-1K-8Zh"/>
+                                                <constraint firstItem="DZX-aJ-Qe1" firstAttribute="top" secondItem="bO1-dh-XTF" secondAttribute="top" constant="20" id="mOW-3z-Zbs"/>
                                                 <constraint firstItem="yP9-sV-aUN" firstAttribute="leading" secondItem="bO1-dh-XTF" secondAttribute="leading" constant="10" id="p8g-Du-Uf1"/>
                                                 <constraint firstAttribute="bottom" secondItem="3aV-Qz-rDL" secondAttribute="bottom" constant="5" id="poT-Di-7UI"/>
                                             </constraints>
@@ -645,7 +663,9 @@
                                         <color key="backgroundColor" red="0.16023316979999999" green="0.1725179553" blue="0.18471300600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="incomingLabel" destination="yP9-sV-aUN" id="e01-ec-6tn"/>
+                                            <outlet property="incomingTimeLabel" destination="iXX-f6-njU" id="gdH-DZ-gXW"/>
                                             <outlet property="outgoingLabel" destination="3aV-Qz-rDL" id="aPQ-9i-SKs"/>
+                                            <outlet property="outgoingTimeLabel" destination="DZX-aJ-Qe1" id="Heb-4S-PH6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1089,13 +1109,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGX-OQ-GhP">
-                                        <rect key="frame" x="85" y="40" width="150.5" height="25"/>
+                                        <rect key="frame" x="84" y="40" width="152" height="29.5"/>
                                         <fontDescription key="fontDescription" name="SoinSansNeue-Medium" family="Soin Sans Neue" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0A6-8e-Uh8">
-                                        <rect key="frame" x="20" y="30" width="21" height="45"/>
+                                        <rect key="frame" x="20" y="30" width="21" height="49.5"/>
                                         <state key="normal" image="close"/>
                                         <connections>
                                             <action selector="closeBtnPressed:" destination="18q-IZ-shT" eventType="touchUpInside" id="w1U-o7-eCJ"/>
@@ -1144,7 +1164,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvE-SG-Y7W">
-                                <rect key="frame" x="85" y="219" width="150" height="40"/>
+                                <rect key="frame" x="85" y="223" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.099975623190000001" green="0.77006447320000004" blue="0.42346745730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="mgc-uh-fiq"/>
@@ -1157,13 +1177,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789012345" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNr-lm-88R">
-                                <rect key="frame" x="54.5" y="191" width="211.5" height="23"/>
+                                <rect key="frame" x="64" y="191" width="192" height="27"/>
                                 <fontDescription key="fontDescription" name="SoinSansNeue-Light" family="Soin Sans Neue" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is already your friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfl-Dl-sRe">
-                                <rect key="frame" x="77.5" y="229" width="165" height="18"/>
+                                <rect key="frame" x="76.5" y="233" width="167.5" height="21"/>
                                 <fontDescription key="fontDescription" name="SoinSansNeue-Light" family="Soin Sans Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

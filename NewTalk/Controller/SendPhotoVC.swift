@@ -24,6 +24,7 @@ class SendPhotoVC: UIViewController,UITextViewDelegate {
     var sendButton: UIButton!
     var addMediaButtom: UIButton!
     var customInputView: UIView!
+    var hisHerUid = ""
     let textField = FlexibleTextView()
     
     override var inputAccessoryView: UIView?{
@@ -125,8 +126,8 @@ class SendPhotoVC: UIViewController,UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.resignFirstResponder()
         hasPicked = false
+        self.resignFirstResponder()
         imageViewHorizontal.image = myImage
     }
     
@@ -135,13 +136,25 @@ class SendPhotoVC: UIViewController,UITextViewDelegate {
     }
 
     @objc func handleSendPhoto() {
-       print("SABIII")
+        if myImage != nil && hisHerUid != ""{
+            if let imageData = myImage.jpegData(compressionQuality: 0.8) {
+                self.dismiss(animated: true, completion: nil)
+                DataService.instance.uploadImageChat(uid: (Auth.auth().currentUser?.uid)!, hisHerUid: hisHerUid, image: imageData as NSData) { (sent) in
+                    if sent{
+                        print("Success in handler")
+                    }else{
+                        print("Error in handler")
+                    }
+                }
+            }
+        }
+
     }
     
     @objc func handleMultPhoto() {
         print("SAdasdsd")
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         textField.resignFirstResponder()
     }
@@ -161,3 +174,4 @@ class SendPhotoVC: UIViewController,UITextViewDelegate {
 
     
 }
+

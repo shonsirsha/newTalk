@@ -8,13 +8,16 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
+
 let DB_BASE = Database.database().reference()
+let STORAGE = Storage.storage().reference()
 class DataService{
     static let instance = DataService()
     
     private var _REF_BASE = DB_BASE
     private var _REF_USER = DB_BASE.child("users")
-    
+    private var _REF_STORAGE = STORAGE
     
     var REF_BASE:DatabaseReference {
         return _REF_BASE
@@ -22,6 +25,10 @@ class DataService{
     
     var REF_USER:DatabaseReference{
         return _REF_USER
+    }
+    
+    var REF_STORAGE: StorageReference{
+        return _REF_STORAGE
     }
 
     
@@ -159,19 +166,39 @@ class DataService{
                 chatObjArr.insert(message, at: 0)
             }
             
-            handler(chatObjArr.reversed())
+            handler(chatObjArr)
             chatObjArr = [MsgForCell]()
             
         }
     }
     
+    func uploadImageChat(uid: String, hisHerUid: String, image: NSData, handler: @escaping(_ status: Bool)->()){
+        let uploadMetaData = StorageMetadata()
+        uploadMetaData.contentType = "image/jpeg"
+        let title = "\(NSDate().timeIntervalSince1970)"
+        let uploadTask = REF_STORAGE.child("chat").child(title).putData(image as Data, metadata: uploadMetaData) { (metadata, error) in
+            if error != nil{
+                print("Error \(String(describing: error?.localizedDescription))")
+                handler(false)
+            }else{
+                print("Upload complete! Here's some metadata \(String(describing: metadata))")
+                handler(true)
+            }
+        }
+        
+        uploadTask.observe(.progress) { (snapshot) in
+            guard let progress = snapshot.progress else {return}
+            print(Float(progress.fractionCompleted))
+        }
  
+}
+    /*func checkIfFriends(username: String, itsFriend: @escaping(_ status: Bool)->()){
+     REF_USER.queryOrdered(byChild: "friends").queryEqual(toValue: username)
+     }*/
+    
 }
     
     
     
-    /*func checkIfFriends(username: String, itsFriend: @escaping(_ status: Bool)->()){
-        REF_USER.queryOrdered(byChild: "friends").queryEqual(toValue: username)
-    }*/
-    
+
 

@@ -12,4 +12,5 @@ target 'NewTalk' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
 end

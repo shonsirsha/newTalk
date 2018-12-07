@@ -283,9 +283,9 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
                 if messagesArr.count > 0 {
                     let topIndex = IndexPath(row: 0, section: 0)
                     myTableView.scrollIndicatorInsets = myTableView.contentInset
-
-
                 }
+                
+                
             }
         
         

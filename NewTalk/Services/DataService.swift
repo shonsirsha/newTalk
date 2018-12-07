@@ -86,13 +86,13 @@ class DataService{
     }
 
     func sendChat(uid: String, hisHerUid: String, message: String , isSent: @escaping(_ status: Bool)->()){
-        REF_USER.child(uid).child("chat").child(hisHerUid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message,"time":NSDate().timeIntervalSince1970])
+        REF_USER.child(uid).child("chat").child(hisHerUid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message,"isPic": "false","time":NSDate().timeIntervalSince1970])
         
-        REF_USER.child(uid).child("recentchat").child(hisHerUid).updateChildValues(["with":hisHerUid, "message": message , "time":NSDate().timeIntervalSince1970])
+        REF_USER.child(uid).child("recentchat").child(hisHerUid).updateChildValues(["with":hisHerUid, "message": message ,"isPic": "false","time":NSDate().timeIntervalSince1970])
         
-        REF_USER.child(hisHerUid).child("chat").child(uid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message,"time":NSDate().timeIntervalSince1970])
+        REF_USER.child(hisHerUid).child("chat").child(uid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message,"isPic": "false","time":NSDate().timeIntervalSince1970])
         
-        REF_USER.child(hisHerUid).child("recentchat").child(uid).updateChildValues(["with":uid, "message": message, "time":NSDate().timeIntervalSince1970])
+        REF_USER.child(hisHerUid).child("recentchat").child(uid).updateChildValues(["with":uid, "message": message,"isPic": "false","time":NSDate().timeIntervalSince1970])
     }
     
     func getAllMyChats(uid: String, handler: @escaping(_ chatObj: [MsgForCell])->()){

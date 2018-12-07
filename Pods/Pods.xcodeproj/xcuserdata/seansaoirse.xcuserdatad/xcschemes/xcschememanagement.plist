@@ -28,6 +28,11 @@
 		<key>FirebaseStorage.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>FirebaseUI.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>10</integer>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
@@ -57,6 +62,11 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>8</integer>
+		</dict>
+		<key>SDWebImage.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>

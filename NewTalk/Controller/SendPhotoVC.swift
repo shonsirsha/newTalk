@@ -139,7 +139,7 @@ class SendPhotoVC: UIViewController,UITextViewDelegate {
         if myImage != nil && hisHerUid != ""{
             if let imageData = myImage.jpegData(compressionQuality: 0.8) {
                 self.dismiss(animated: true, completion: nil)
-                DataService.instance.uploadImageChat(uid: (Auth.auth().currentUser?.uid)!, hisHerUid: hisHerUid, image: imageData as NSData) { (sent) in
+                DataService.instance.uploadImageChat(uid: (Auth.auth().currentUser?.uid)!, hisHerUid: hisHerUid, image: imageData as NSData, caption: textField.text!) { (sent) in
                     if sent{
                         print("Success in handler")
                     }else{

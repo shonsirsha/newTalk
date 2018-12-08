@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import FirebaseUI
 
 var hasPicked = false
 var currentVC = "chatIndividual"
@@ -335,73 +335,95 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
         
         if chatObj.talkWith == (Auth.auth().currentUser?.uid)!{ //talkwith here is "from"
         
-            
-            cell.outgoingLabel.isHidden = false
-            cell.outgoingTimeLabel.isHidden = false
-            
-            cell.incomingTimeLabel.isHidden = true
-            cell.incomingLabel.isHidden = true
-            
-            cell.outgoingLabel.text = chatObj.content
-            
-            if chatYear == todayYear{//this year
-                if chatMonthYear == todayMonthYear { // this month
-                    chatTimeFormat.dateFormat = "HH:mm"
-                    cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                    if chatDay == todayDate{ // today
-                        
-                    }else if todayDateOfDay! - chatDateOfDay! == 1{ // yesterday
-                        chatTimeFormat.dateFormat = "HH:mm"
-                        cell.outgoingTimeLabel.text = "Yesterday, \(chatTimeFormat.string(from: date as Date))"
+            if chatObj.isPic != "true"{
+                cell.outgoingLabel.isHidden = false
+                cell.outgoingTimeLabel.isHidden = false
+                
+                cell.incomingTimeLabel.isHidden = true
+                cell.incomingLabel.isHidden = true
+                cell.outgoingImage.isHidden = true
 
-                    }else{ // any other day
-                        chatTimeFormat.dateFormat = "dd MMM, HH:mm"
+                cell.outgoingLabel.text = chatObj.content
+                
+                if chatYear == todayYear{//this year
+                    if chatMonthYear == todayMonthYear { // this month
+                        chatTimeFormat.dateFormat = "HH:mm"
+                        cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                        if chatDay == todayDate{ // today
+                            
+                        }else if todayDateOfDay! - chatDateOfDay! == 1{ // yesterday
+                            chatTimeFormat.dateFormat = "HH:mm"
+                            cell.outgoingTimeLabel.text = "Yesterday, \(chatTimeFormat.string(from: date as Date))"
+                            
+                        }else{ // any other day
+                            chatTimeFormat.dateFormat = "dd MMM, HH:mm"
+                            cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                        }
+                    }else{ // different month
+                        chatTimeFormat.dateFormat = "EE dd MMM, HH:mm"
                         cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
                     }
-                }else{ // different month
-                    chatTimeFormat.dateFormat = "EE dd MMM, HH:mm"
+                }else{//different year
+                    chatTimeFormat.dateFormat = "EE dd MMM, HH:mm yyyy"
                     cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
                 }
-            }else{//different year
-                chatTimeFormat.dateFormat = "EE dd MMM, HH:mm yyyy"
-                cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                
+            }else{
+                cell.outgoingLabel.isHidden = true
+                cell.outgoingTimeLabel.isHidden = true
+                cell.incomingTimeLabel.isHidden = true
+                cell.incomingLabel.isHidden = true
+                
+                cell.outgoingImage.isHidden = false
+                
+                let reference = STORAGE.child("chat/\(chatObj.title)")
+                
+                let placeholderImage = UIImage(named: "whiteCheckmark.png")
+                cell.outgoingImage.sd_setImage(with: reference, placeholderImage: placeholderImage)
+                
+                
             }
-            
-            
         }else{
-            
-            cell.incomingTimeLabel.isHidden = false
-            cell.incomingLabel.isHidden = false
-            
-            cell.outgoingTimeLabel.isHidden = true
-            cell.outgoingLabel.isHidden = true
-
-            cell.incomingLabel.text = chatObj.content
-            
-            
-            if chatYear == todayYear{//this year
-                if chatMonthYear == todayMonthYear { // this month
-                    chatTimeFormat.dateFormat = "HH:mm"
-                    cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                    if chatDay == todayDate{ // today
-                        
-                    }else if todayDateOfDay! - chatDateOfDay! == 1{ // yesterday
+            if chatObj.isPic != "true"{
+                
+                cell.incomingTimeLabel.isHidden = false
+                cell.incomingLabel.isHidden = false
+                
+                cell.outgoingImage.isHidden = true
+                cell.outgoingTimeLabel.isHidden = true
+                cell.outgoingLabel.isHidden = true
+                
+                cell.incomingLabel.text = chatObj.content
+                
+                
+                if chatYear == todayYear{//this year
+                    if chatMonthYear == todayMonthYear { // this month
                         chatTimeFormat.dateFormat = "HH:mm"
-                        cell.incomingTimeLabel.text = "Yesterday, \(chatTimeFormat.string(from: date as Date))"
-                        
-                    }else{ // any other day
-                        chatTimeFormat.dateFormat = "dd MMM, HH:mm"
+                        cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                        if chatDay == todayDate{ // today
+                            
+                        }else if todayDateOfDay! - chatDateOfDay! == 1{ // yesterday
+                            chatTimeFormat.dateFormat = "HH:mm"
+                            cell.incomingTimeLabel.text = "Yesterday, \(chatTimeFormat.string(from: date as Date))"
+                            
+                        }else{ // any other day
+                            chatTimeFormat.dateFormat = "dd MMM, HH:mm"
+                            cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+                        }
+                    }else{ // different month
+                        chatTimeFormat.dateFormat = "EE dd MMM, HH:mm"
                         cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
                     }
-                }else{ // different month
-                    chatTimeFormat.dateFormat = "EE dd MMM, HH:mm"
+                }else{//different year
+                    chatTimeFormat.dateFormat = "EE dd MMM, HH:mm yyyy"
                     cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
                 }
-            }else{//different year
-                chatTimeFormat.dateFormat = "EE dd MMM, HH:mm yyyy"
-                cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
+            }else{
+                cell.incomingTimeLabel.isHidden = true
+                cell.incomingLabel.isHidden = true
+                cell.outgoingTimeLabel.isHidden = true
+                cell.outgoingLabel.isHidden = true
             }
-
         }
         
         cell.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI));

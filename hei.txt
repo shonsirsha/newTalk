@@ -1,4 +1,0 @@
-
-<div id="asdasd">
-	<b>hi</b>
-</div>

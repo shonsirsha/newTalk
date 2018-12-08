@@ -14,6 +14,7 @@ class ChatIndividualCell: UITableViewCell {
     @IBOutlet weak var incomingLabel: PaddingLabel!
     @IBOutlet weak var incomingTimeLabel: UILabel!
     @IBOutlet weak var outgoingTimeLabel: UILabel!
+    @IBOutlet weak var outgoingImage: UIImageView!
     
     
     override func awakeFromNib() {

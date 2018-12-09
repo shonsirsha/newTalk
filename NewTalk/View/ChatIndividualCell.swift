@@ -14,8 +14,8 @@ class ChatIndividualCell: UITableViewCell {
     @IBOutlet weak var incomingLabel: PaddingLabel!
     @IBOutlet weak var incomingTimeLabel: UILabel!
     @IBOutlet weak var outgoingTimeLabel: UILabel!
-    @IBOutlet weak var outgoingImage: UIImageView!
     
+    @IBOutlet weak var imagePeekLabel: PaddingLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,12 +28,18 @@ class ChatIndividualCell: UITableViewCell {
         outgoingLabel?.layer.cornerRadius = radius
         outgoingLabel?.layer.masksToBounds = true
         
+        radius = (imagePeekLabel?.bounds.size.height)! / 5
+        imagePeekLabel?.layer.cornerRadius = radius
+        imagePeekLabel?.layer.masksToBounds = true
         
     }
 
+
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
 
 }
+

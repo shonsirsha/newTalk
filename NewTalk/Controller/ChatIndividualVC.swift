@@ -16,7 +16,6 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     
     var hasOpened = false
     
-    var hisHerTalkId: String = ""
     var hisHerUid: String = ""
     override var canBecomeFirstResponder: Bool{
         return true
@@ -25,6 +24,8 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var btc: NSLayoutConstraint!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var peekedImageView: UIImageView!
+    
     var customInputViewChat: UIView!
 
     var messagesArr = [MsgForCell]()
@@ -158,15 +159,9 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatIndividualVC.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        if hisHerTalkId != ""{
-            DataService.instance.checkUname(talkId: hisHerTalkId) { (isNotFound, returnedHisHerUid) in
-                if !isNotFound{
-                    self.hisHerUid = returnedHisHerUid
-                }else{
-                    print("tf!")
-                }
-            }
-        }
+        
+        
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -338,10 +333,10 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
             if chatObj.isPic != "true"{
                 cell.outgoingLabel.isHidden = false
                 cell.outgoingTimeLabel.isHidden = false
-                
                 cell.incomingTimeLabel.isHidden = true
                 cell.incomingLabel.isHidden = true
-                cell.outgoingImage.isHidden = true
+                cell.imagePeekLabel.isHidden = true
+                
 
                 cell.outgoingLabel.text = chatObj.content
                 
@@ -369,17 +364,20 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
                 }
                 
             }else{
-                cell.outgoingLabel.isHidden = true
-                cell.outgoingTimeLabel.isHidden = true
                 cell.incomingTimeLabel.isHidden = true
                 cell.incomingLabel.isHidden = true
+                cell.outgoingTimeLabel.isHidden = true
+                cell.outgoingLabel.isHidden = true
+                cell.imagePeekLabel.isHidden = false
                 
-                cell.outgoingImage.isHidden = false
+              
+
+
+                let peek = UILongPressGestureRecognizer(target: self, action: #selector(photoPeek(_:)))
+                cell.imagePeekLabel.isUserInteractionEnabled = true
+                cell.imagePeekLabel.addGestureRecognizer(peek)
                 
-                let reference = STORAGE.child("chat/\(chatObj.title)")
-                
-                let placeholderImage = UIImage(named: "whiteCheckmark.png")
-                cell.outgoingImage.sd_setImage(with: reference, placeholderImage: placeholderImage)
+              
                 
                 
             }
@@ -388,10 +386,9 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
                 
                 cell.incomingTimeLabel.isHidden = false
                 cell.incomingLabel.isHidden = false
-                
-                cell.outgoingImage.isHidden = true
                 cell.outgoingTimeLabel.isHidden = true
                 cell.outgoingLabel.isHidden = true
+                cell.imagePeekLabel.isHidden = true
                 
                 cell.incomingLabel.text = chatObj.content
                 
@@ -423,6 +420,8 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
                 cell.incomingLabel.isHidden = true
                 cell.outgoingTimeLabel.isHidden = true
                 cell.outgoingLabel.isHidden = true
+                cell.imagePeekLabel.isHidden = true
+
             }
         }
         
@@ -431,6 +430,28 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
         return cell
         
     }
+   
+    @objc func photoPeek(_ sender: UIGestureRecognizer){
+        
+        if sender.state == .ended {
+            peekedImageView.isHidden = true
+            
+        }
+        else if sender.state == .began {
+            peekedImageView.isHidden = false
+            let touchPoint = sender.location(in: self.myTableView)
+            if let indexPath = self.myTableView.indexPathForRow(at: touchPoint) {
+                let chatObj = messagesArr[indexPath.row]
+                let reference = STORAGE.child("chat/\(chatObj.title)")
+                print(chatObj.title)
+                let placeholderImage = UIImage(named: "whiteCheckmark.png")
+                peekedImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+                
+            }
+           
+        }
+    }
+    
     @IBAction func backBtnPRessed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -474,3 +495,6 @@ extension ChatIndividualVC: UIImagePickerControllerDelegate, UINavigationControl
     }
 }
 
+/*extension ChatIndividualCell{
+ 
+}*/

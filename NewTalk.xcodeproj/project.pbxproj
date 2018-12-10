@@ -54,6 +54,7 @@
 		B5E6098321A014280021F8C9 /* MyTabbarClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E6098221A014280021F8C9 /* MyTabbarClassVC.swift */; };
 		B5E6098521A018730021F8C9 /* AddFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E6098421A018730021F8C9 /* AddFriendsVC.swift */; };
 		B5F03B9121AE584200001FBD /* SendPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F03B9021AE584200001FBD /* SendPhotoVC.swift */; };
+		B5FA89D421BE81F9007FD8BC /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA89D321BE81F9007FD8BC /* RoundView.swift */; };
 		B5FC25F2219FCA7A002287AF /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC25F1219FCA7A002287AF /* DataService.swift */; };
 		B5FC25F4219FCE1A002287AF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC25F3219FCE1A002287AF /* AuthService.swift */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		B5E6098221A014280021F8C9 /* MyTabbarClassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabbarClassVC.swift; sourceTree = "<group>"; };
 		B5E6098421A018730021F8C9 /* AddFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsVC.swift; sourceTree = "<group>"; };
 		B5F03B9021AE584200001FBD /* SendPhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhotoVC.swift; sourceTree = "<group>"; };
+		B5FA89D321BE81F9007FD8BC /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		B5FC25F1219FCA7A002287AF /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B5FC25F3219FCE1A002287AF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FB488CABCC5BF5EC6CC9C626 /* Pods_NewTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 			children = (
 				B5ABEEE121A3BCEF00B0301D /* GradientSwift.swift */,
 				B59EE49621A3F50E00025C18 /* FriendsCell.swift */,
+				B5FA89D321BE81F9007FD8BC /* RoundView.swift */,
 				B5532EAA21A442A3006187AB /* ChatCell.swift */,
 				B51B03C921A82EE900CE0CEC /* ChatIndividualCell.swift */,
 				B51B03CB21A8397300CE0CEC /* PaddingLabel.swift */,
@@ -442,6 +445,7 @@
 				B5154E5121A5BF9600522E95 /* MsgForCell.swift in Sources */,
 				B5C2C438219F15EF00E6D3EC /* LoginVC.swift in Sources */,
 				B5FC25F2219FCA7A002287AF /* DataService.swift in Sources */,
+				B5FA89D421BE81F9007FD8BC /* RoundView.swift in Sources */,
 				B5532EAD21A44E95006187AB /* ChatIndividualVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

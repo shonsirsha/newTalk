@@ -70,17 +70,21 @@ class DataService{
     func checkMyFriends(uid: String, handler: @escaping(_ friends: [String])->()){
         var friendsArr = [String]()
         REF_USER.child(uid).child("friends").observe(DataEventType.value) { (friendsObject) in
-            guard let friendsObject = friendsObject.children.allObjects as? [DataSnapshot] else {return}
-            
-            for friendsUid in friendsObject{
-                let theirUid = friendsUid.childSnapshot(forPath: "uid").value as! String
+            if friendsObject.exists(){
+                guard let friendsObject = friendsObject.children.allObjects as? [DataSnapshot] else {return}
                 
-                friendsArr.insert(theirUid, at: 0)
+                for friendsUid in friendsObject{
+                    let theirUid = friendsUid.childSnapshot(forPath: "uid").value as! String
+                    
+                    friendsArr.insert(theirUid, at: 0)
+                }
+                
+                
+                handler(friendsArr)
+                friendsArr = [String]()
+            }else{
+                return
             }
-            
-            
-            handler(friendsArr)
-            friendsArr = [String]()
            
         }
     }
@@ -93,6 +97,17 @@ class DataService{
         REF_USER.child(hisHerUid).child("chat").child(uid).childByAutoId().updateChildValues(["from":uid, "to":hisHerUid, "message": message,"isPic": "false", "title":"" ,"time":NSDate().timeIntervalSince1970])
         
         REF_USER.child(hisHerUid).child("recentchat").child(uid).updateChildValues(["with":uid, "message": message,"isPic": "false", "title": "" ,"time":NSDate().timeIntervalSince1970])
+        
+        REF_USER.child(hisHerUid).child("friends").child(uid).queryOrdered(byChild: "notif").observeSingleEvent(of: DataEventType.value, with: { (userObj) in
+            guard let me = userObj.children.allObjects as? [DataSnapshot] else {return}
+            var myNotif = 0
+            for x in me{
+                if x.key == "notif"{
+                    myNotif = x.value as! Int
+                }
+            }
+            self.REF_USER.child(hisHerUid).child("friends").child(uid).updateChildValues(["notif":myNotif+1])
+        })
     }
     
     func getAllMyChats(uid: String, handler: @escaping(_ chatObj: [MsgForCell])->()){
@@ -194,6 +209,16 @@ class DataService{
                 self.REF_USER.child(hisHerUid).child("recentchat").child(uid).updateChildValues(["with":uid,"title": title,"isPic": "true","message": caption,"time":NSDate().timeIntervalSince1970])
                 
                 
+                    self.REF_USER.child(hisHerUid).child("friends").child(uid).queryOrdered(byChild: "notif").observeSingleEvent(of: DataEventType.value, with: { (userObj) in
+                    guard let me = userObj.children.allObjects as? [DataSnapshot] else {return}
+                    var myNotif = 0
+                    for x in me{
+                        if x.key == "notif"{
+                            myNotif = x.value as! Int
+                        }
+                    }
+                    self.REF_USER.child(hisHerUid).child("friends").child(uid).updateChildValues(["notif":myNotif+1])
+                    })
                 handler(true)
             }
         }

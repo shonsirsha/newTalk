@@ -12,14 +12,14 @@ class ChatVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
  
     
     var messagesArr = [MsgForCell]()
-
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-   
+        self.tableView.tableFooterView = UIView()
 
     }
     
@@ -44,6 +44,18 @@ class ChatVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
         let recentChatsObj = messagesArr[indexPath.row]
         DataService.instance.getDisplayName(uid: recentChatsObj.talkWith) { (returnedDisplayName) in
               cell.configureCell(name: returnedDisplayName, message: recentChatsObj.content)
+        }
+        
+        if (cell.responds(to: #selector(setter: UITableViewCell.separatorInset))) {
+            cell.separatorInset = UIEdgeInsets.zero
+        }
+        
+        if (cell.responds(to: #selector(setter: UIView.preservesSuperviewLayoutMargins))) {
+            cell.preservesSuperviewLayoutMargins = false
+        }
+        
+        if (cell.responds(to: #selector(setter: UIView.layoutMargins))) {
+            cell.layoutMargins = UIEdgeInsets.zero
         }
         
         return cell

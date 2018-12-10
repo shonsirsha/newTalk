@@ -25,6 +25,7 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var peekedImageView: UIImageView!
+
     
     var customInputViewChat: UIView!
 
@@ -158,9 +159,6 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
         NotificationCenter.default.addObserver(self, selector: #selector(ChatIndividualVC.keyboardWillShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatIndividualVC.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
-        
        
     }
     
@@ -301,6 +299,7 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "bubbleCell") as? ChatIndividualCell else {return UITableViewCell()}
 
         let chatObj = messagesArr[indexPath.row]
+        var dateStr = ""
 
         let checkYear = DateFormatter()
         checkYear.dateFormat = "Y"
@@ -327,101 +326,96 @@ class ChatIndividualVC: UIViewController,UITableViewDelegate, UITableViewDataSou
         let chatMonthYear = checkMonthYear.string(from: date as Date)
         let chatDay = checkDay.string(from: date as Date)
         let chatDateOfDay = Int(checkDateOfDay.string(from: date as Date))
+     
+        if chatYear == todayYear{//this year
+            if chatMonthYear == todayMonthYear { // this month
+                
+                if chatDay == todayDate{ // today
+                    chatTimeFormat.dateFormat = "HH:mm"
+                    dateStr = "\(chatTimeFormat.string(from: date as Date))"
+                }else if todayDateOfDay! - chatDateOfDay! == 1{ // yesterday
+                    chatTimeFormat.dateFormat = "HH:mm"
+                    dateStr = "Yesterday, \(chatTimeFormat.string(from: date as Date))"
+                    
+                }else{ // any other day
+                    chatTimeFormat.dateFormat = "dd MMM, HH:mm"
+                    dateStr = "\(chatTimeFormat.string(from: date as Date))"
+                }
+            }else{ // different month
+                chatTimeFormat.dateFormat = "EE dd MMM, HH:mm"
+                dateStr = "\(chatTimeFormat.string(from: date as Date))"
+            }
+        }else{//different year
+            chatTimeFormat.dateFormat = "EE dd MMM, HH:mm yyyy"
+            dateStr = "\(chatTimeFormat.string(from: date as Date))"
+        }
         
         if chatObj.talkWith == (Auth.auth().currentUser?.uid)!{ //talkwith here is "from"
-        
+           
             if chatObj.isPic != "true"{
-                cell.outgoingLabel.isHidden = false
                 cell.outgoingTimeLabel.isHidden = false
+                cell.outgoingLabel.isHidden = false
                 cell.incomingTimeLabel.isHidden = true
                 cell.incomingLabel.isHidden = true
                 cell.imagePeekLabel.isHidden = true
+                cell.imagePeekLabelIncoming.isHidden = true
+                cell.outgoingTimeLabelForPeek.isHidden = true
+                cell.incomingTimeLabelForPeek.isHidden = true
                 
-
                 cell.outgoingLabel.text = chatObj.content
                 
-                if chatYear == todayYear{//this year
-                    if chatMonthYear == todayMonthYear { // this month
-                        chatTimeFormat.dateFormat = "HH:mm"
-                        cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                        if chatDay == todayDate{ // today
-                            
-                        }else if todayDateOfDay! - chatDateOfDay! == 1{ // yesterday
-                            chatTimeFormat.dateFormat = "HH:mm"
-                            cell.outgoingTimeLabel.text = "Yesterday, \(chatTimeFormat.string(from: date as Date))"
-                            
-                        }else{ // any other day
-                            chatTimeFormat.dateFormat = "dd MMM, HH:mm"
-                            cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                        }
-                    }else{ // different month
-                        chatTimeFormat.dateFormat = "EE dd MMM, HH:mm"
-                        cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                    }
-                }else{//different year
-                    chatTimeFormat.dateFormat = "EE dd MMM, HH:mm yyyy"
-                    cell.outgoingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                }
+                cell.outgoingTimeLabel.text = dateStr
                 
             }else{
                 cell.incomingTimeLabel.isHidden = true
                 cell.incomingLabel.isHidden = true
-                cell.outgoingTimeLabel.isHidden = true
                 cell.outgoingLabel.isHidden = true
+                cell.outgoingTimeLabel.isHidden = true
+                cell.imagePeekLabelIncoming.isHidden = true
+                cell.incomingTimeLabelForPeek.isHidden = true
                 cell.imagePeekLabel.isHidden = false
-                
-              
+                cell.outgoingTimeLabelForPeek.isHidden = false
 
+                cell.outgoingTimeLabelForPeek.text = dateStr
 
                 let peek = UILongPressGestureRecognizer(target: self, action: #selector(photoPeek(_:)))
                 cell.imagePeekLabel.isUserInteractionEnabled = true
                 cell.imagePeekLabel.addGestureRecognizer(peek)
                 
-              
-                
-                
             }
         }else{
+            
             if chatObj.isPic != "true"{
-                
-                cell.incomingTimeLabel.isHidden = false
-                cell.incomingLabel.isHidden = false
+
                 cell.outgoingTimeLabel.isHidden = true
                 cell.outgoingLabel.isHidden = true
                 cell.imagePeekLabel.isHidden = true
+                cell.incomingTimeLabelForPeek.isHidden = true
+                cell.outgoingTimeLabelForPeek.isHidden = true
+                cell.imagePeekLabelIncoming.isHidden = true
+                cell.incomingTimeLabel.isHidden = false
+                cell.incomingLabel.isHidden = false
+
                 
                 cell.incomingLabel.text = chatObj.content
+              
                 
-                
-                if chatYear == todayYear{//this year
-                    if chatMonthYear == todayMonthYear { // this month
-                        chatTimeFormat.dateFormat = "HH:mm"
-                        cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                        if chatDay == todayDate{ // today
-                            
-                        }else if todayDateOfDay! - chatDateOfDay! == 1{ // yesterday
-                            chatTimeFormat.dateFormat = "HH:mm"
-                            cell.incomingTimeLabel.text = "Yesterday, \(chatTimeFormat.string(from: date as Date))"
-                            
-                        }else{ // any other day
-                            chatTimeFormat.dateFormat = "dd MMM, HH:mm"
-                            cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                        }
-                    }else{ // different month
-                        chatTimeFormat.dateFormat = "EE dd MMM, HH:mm"
-                        cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                    }
-                }else{//different year
-                    chatTimeFormat.dateFormat = "EE dd MMM, HH:mm yyyy"
-                    cell.incomingTimeLabel.text = "\(chatTimeFormat.string(from: date as Date))"
-                }
+                cell.incomingTimeLabel.text = dateStr
             }else{
-                cell.incomingTimeLabel.isHidden = true
                 cell.incomingLabel.isHidden = true
                 cell.outgoingTimeLabel.isHidden = true
                 cell.outgoingLabel.isHidden = true
                 cell.imagePeekLabel.isHidden = true
-
+                cell.incomingTimeLabel.isHidden = true
+                cell.outgoingTimeLabelForPeek.isHidden = true
+                cell.imagePeekLabelIncoming.isHidden = false
+                cell.incomingTimeLabelForPeek.isHidden = false
+                
+                cell.incomingTimeLabelForPeek.text = dateStr
+                
+                let peek = UILongPressGestureRecognizer(target: self, action: #selector(photoPeek(_:)))
+                cell.imagePeekLabelIncoming.isUserInteractionEnabled = true
+                cell.imagePeekLabelIncoming.addGestureRecognizer(peek)
             }
         }
         

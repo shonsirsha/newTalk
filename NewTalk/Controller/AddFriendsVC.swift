@@ -68,9 +68,9 @@ class AddFriendsVC: UIViewController,UITextFieldDelegate{
     }
     @IBAction func addBtnPressed(_ sender: Any) {
        
-            let userData = ["talkId": unameField.text!, "uid": goingToAddUserId, "notif": 0] as [String:Any]
+            let userData = ["talkId": unameField.text!, "uid": goingToAddUserId] as [String:Any]
             
-            let myData = ["talkId": myUid ,"uid": (Auth.auth().currentUser?.uid)!, "notif": 0] as [String:Any]
+            let myData = ["talkId": myUid ,"uid": (Auth.auth().currentUser?.uid)!] as [String:Any]
             
             DataService.instance.addFriend(hisHerUid: goingToAddUserId, uid: (Auth.auth().currentUser?.uid)!, userData: userData, myData: myData)
             

@@ -32,6 +32,7 @@ class MeVC: UIViewController,UITableViewDelegate, UITableViewDataSource{
                 self.friendsUidArr = friendTalkIds
                 self.tableView.reloadData()
                 self.friendsLabel.text = "All friends (\(self.friendsUidArr.count))"
+                print("THIS IS \(friendTalkIds)")
                 print(self.friendsUidArr)
             }
         }

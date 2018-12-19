@@ -26,8 +26,10 @@ class ChatVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil{
-        DataService.instance.getAllMyChats(uid: (Auth.auth().currentUser?.uid)!) { (returnedArr) in
+        DataService.instance.getRecentChats(uid: (Auth.auth().currentUser?.uid)!) { (returnedArr) in
             self.messagesArr = returnedArr
+            print(returnedArr)
+            print("THIS IS LOCAL \(self.messagesArr)")
             self.tableView.reloadData()
         }
         }
@@ -43,7 +45,7 @@ class ChatVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
        
         let recentChatsObj = messagesArr[indexPath.row]
         DataService.instance.getDisplayName(uid: recentChatsObj.talkWith) { (returnedDisplayName) in
-              cell.configureCell(name: returnedDisplayName, message: recentChatsObj.content)
+              cell.configureCell(name: returnedDisplayName, message: recentChatsObj.content, numOfNotif: recentChatsObj.notif)
         }
         
         if (cell.responds(to: #selector(setter: UITableViewCell.separatorInset))) {

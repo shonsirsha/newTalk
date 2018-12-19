@@ -14,6 +14,7 @@ class MsgForCell{
     private var _time: Double
     private var _isPic: String
     private var _title: String
+    private var _notif: Int
     
     var content: String{
         return _content
@@ -35,11 +36,16 @@ class MsgForCell{
         return _title
     }
     
-    init(talkWith: String, content: String, time: Double, isPic: String, title: String){
+    var notif: Int{
+        return _notif
+    }
+    
+    init(talkWith: String, content: String, time: Double, isPic: String, title: String, notif: Int){
         self._talkWith = talkWith
         self._content = content
         self._time = time
         self._isPic = isPic
         self._title = title
+        self._notif = notif
     }
 }

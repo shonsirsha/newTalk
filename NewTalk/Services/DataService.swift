@@ -189,6 +189,8 @@ class DataService{
             chatObjArr = [MsgForCell]()
             
         }
+        
+        REF_USER.child(uid).child("recentchat").child(hisHerUid).updateChildValues(["notif":0])
     }
     
     func uploadImageChat(uid: String, hisHerUid: String, image: NSData, caption: String, handler: @escaping(_ status: Bool)->()){
@@ -221,8 +223,6 @@ class DataService{
                     
                     self.REF_USER.child(hisHerUid).child("recentchat").child(uid).updateChildValues(["with":uid,"title": title,"isPic": "true","message": caption,"time":NSDate().timeIntervalSince1970,"notif":notif])
                 })
-                
-                
                 
                 handler(true)
             }
